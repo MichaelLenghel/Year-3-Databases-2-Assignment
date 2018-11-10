@@ -47,7 +47,7 @@ CREATE TABLE Property (
     numFloors NUMBER(2) NOT NULL,
     numToilets NUMBER(2) NOT NULL,
     -- type denotes house, apartment, bungalow, etc.
-    type VARCHAR2(50) NOT NULL,
+    propertyType VARCHAR2(50) NOT NULL,
     -- Y / N
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
@@ -86,7 +86,6 @@ CREATE TABLE Buyer (
     CONSTRAINT buyer_pk PRIMARY KEY (buyerID),
     CONSTRAINT agent_ID_buyer_fk FOREIGN KEY (agentID) REFERENCES EstateAgent (agentID),
     CONSTRAINT companyID_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
-    --    # companyID
 );
 
 CREATE TABLE BuyTransaction (
@@ -144,37 +143,37 @@ INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(10, 'David D. Larsen', '123400130', 'david@seller.ie');
 
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasGarden, price)
     VALUES(1, '2350 Gibson Road', 1, 4, 1, 2, 'Bungalow', 'Y', 235000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasBalcony, price) 
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasBalcony, price) 
     VALUES(2, '197 Watson Street', 2, 3, 1, 2, 'Apartment', 'Y', 789000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(3, '2525 Pottsdamer Street', 3, 1, 1, 1, 'Apartment', 100500);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasBalcony, hasGarden, price)
     VALUES(4, '193 Love BLVD', 4, 6, 3, 6, 'House', 'Y', 'Y', 930000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(5, '647 Maston Road', 5, 2, 1, 1, 'Apartment', 135000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasGarden, price)
     VALUES(6, '1350 Navada Street', 6, 4, 2, 2, 'House', 'Y', 674090);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(7, '256 Florida Street', 7, 5, 2, 2, 'House', 179280);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasGarden, price)
     VALUES(8, '1717 Kansas Street', 2 ,3, 2, 1, 'Semi-Detached', 'Y', 345000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasBalcony, hasGarden, price)
     VALUES(9, '2613 Academic Way', 5, 8, 3, 3, 'Mansion', 'Y', 'Y', 997050);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(10, '179 Tinker Road', 5, 1, 1, 1, 'Apartment', 90000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(11, '179 Lysergic Road', 8, 3, 2, 3, 'House', 125000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(12, '179 Endensummer Street', 9, 1, 1, 2, 'Bungalow', 75000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(13, '3721 White Avenue', 10, 2, 10, 2, 'House', 85000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(14, '19 Strawberry Street', 11, 4, 2, 3, 'House', 95000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(15, '88 Jungle Road', 12, 2, 12, 1, 'Apartment', 60000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(16, 'Haunted Street', 13, 4, 13, 1, 'Bungalow', 70000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
@@ -236,15 +235,6 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
     VALUES(2, 1, 5, 12, 4, 9);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(3, 1, 7, 13, 5, 10);
-
---DECLARE
---v_id Seller.sellerID%TYPE :='&seller_ID';
---v_name Seller.sellerName%TYPE := '&sellers_name';
---v_phone Seller.sellerPhoneNum%TYPE := '&sellers_phone_number';
---v_email Seller.sellerEmail%TYPE := '&sellers_email';
---    Begin
---        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
---    End;
 
 select * from buyer;
 select * from buytransaction;
