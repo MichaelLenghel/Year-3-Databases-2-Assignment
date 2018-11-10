@@ -85,8 +85,16 @@ CREATE TABLE Seller (
 CREATE TABLE BuyTransaction (
     buyTransID NUMBER(5) NOT NULL,
     companyID NUMBER(5) NULL,
+    agentID NUMBER(5) NULL,
+    propertyID NUMBER(5) NULL,
+    buyerID NUMBER(5) NULL,
+    sellerID NUMBER(5) NULL,
     CONSTRAINT buyTrans_pk PRIMARY KEY(buyTransID),
-    CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
+    CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES EstateAgent(companyID),
+    CONSTRAINT agentID_buyTrans_fk FOREIGN KEY (agentID) REFERENCES Company (agentID),
+    CONSTRAINT propertyID_buyTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
+    CONSTRAINT buyerID_buyTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
+    CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
 
 CREATE TABLE RentTransaction (
