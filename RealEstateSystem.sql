@@ -108,9 +108,15 @@ CREATE TABLE RentTransaction (
     rentTransID NUMBER(5) NOT NULL,
     companyID NUMBER(5) NULL,
     propertyID NUMBER(5) NULL,
+    agentID NUMBER(5) NOT NULL,
+    buyerID NUMBER(5) NOT NULL,
+    sellerID NUMBER(5) NOT NULL,
     CONSTRAINT rentTrans_pk PRIMARY KEY(rentTransID),
     CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID),
-    CONSTRAINT propertyID_rentTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID)
+    CONSTRAINT propertyID_rentTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
+    CONSTRAINT agentID_rentTrans_fk FOREIGN KEY (agentID) REFERENCES EstateAgent (agentID),
+    CONSTRAINT buyerID_rentTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
+    CONSTRAINT sellerID_rentTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
 
 COMMIT;
@@ -219,14 +225,14 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(3, 1, 7, 13, 5, 10);
 
-DECLARE
-v_id Seller.sellerID%TYPE := '&Enter seller ID';
-v_name Seller.sellerName%TYPE := '&Enter the sellers name';
-v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
-v_email Seller.sellerEmail%TYPE := '&Enter sellers ID';
-    Begin
-        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
-    End;
+--DECLARE
+--v_id Seller.sellerID%TYPE := '&Enter seller ID';
+--v_name Seller.sellerName%TYPE := '&Enter the sellers name';
+--v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
+--v_email Seller.sellerEmail%TYPE := '&Enter sellers email';
+--    Begin
+--        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
+--    End;
 
 select * from buyer;
 select * from buytransaction;
