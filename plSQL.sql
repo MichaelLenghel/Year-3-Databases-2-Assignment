@@ -1,5 +1,10 @@
--- SELLER PL/SQL
-SET SERVEROUTPUT ON 
+-- Student Name: Michael Lenghel Student Number: C16434974
+-- Student Name: Eamonn Keogh Student Number: C16757629
+-- Student Name: Povilas Kubilius Student Number: c16370803
+
+--Seller PL/SQL
+SET SERVEROUTPUT ON
+
 DECLARE
     --Increment propertyid and sellerid, rather than input
     v_sID Seller.sellerID%TYPE := '&sellers_id';
@@ -18,6 +23,7 @@ DECLARE
     v_buyers Buyer.buyerName%TYPE;
     BEGIN
         DBMS_OUTPUT.PUT_LINE('Potential Buyers within price range: ');
+        -- SQL Query that will find all the buyers that can afford the sellers property.
         FOR buyer IN (SELECT Buyer.buyerName into v_buyers From Buyer
                     Where v_price < maxPreferredPrice)
         LOOP
@@ -26,9 +32,11 @@ DECLARE
         -- Add a new seller
         INSERT INTO Seller VALUES
             (v_sID, v_name, v_phone, v_email);
+        --Insert new property into the property table
         INSERT INTO Property VALUES
             (v_pID, v_address,  v_sID, v_numBedrooms, v_numFloors, v_numToilets, v_property_type,v_hasGarden,v_hasGarden, v_price);
         Commit;
+    --Handle exceptions appropriately
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
             DBMS_OUTPUT.PUT_LINE('Nothing found');
@@ -37,7 +45,6 @@ DECLARE
             DBMS_OUTPUT.PUT_LINE('Rolling back...');
             ROLLBACK;
     End;
-
 
 --BUYER PL/SQL
 SET SERVEROUTPUT ON
@@ -63,14 +70,3 @@ EXCEPTION
     WHEN OTHERS THEN
     dbms_output.put_line('Error');
 END; 
-
-
-
-
-
-
-
-
-
-
-
