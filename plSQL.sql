@@ -2,6 +2,7 @@
 -- Student Name: Eamonn Keogh Student Number: C16757629
 -- Student Name: Povilas Kubilius Student Number: c16370803
 
+--Seller PL/SQL
 SET SERVEROUTPUT ON
 DECLARE
     --Increment propertyid and sellerid, rather than input
@@ -68,14 +69,3 @@ EXCEPTION
     WHEN OTHERS THEN
     dbms_output.put_line('Error');
 END; 
-
-
-
-
-
-
-
-
-
-
-
