@@ -165,13 +165,17 @@ INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, num
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
     VALUES(10, '179 Tinker Road', 5, 1, 1, 1, 'Apartment', 90000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(11, '179 Lysergic Road', 3, 3, 2, 3, 'House', 125000);
+    VALUES(11, '179 Lysergic Road', 8, 3, 2, 3, 'House', 125000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(12, '179 Endensummer Street', 8, 1, 1, 2, 'Bungalow', 75000);
+    VALUES(12, '179 Endensummer Street', 9, 1, 1, 2, 'Bungalow', 75000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(13, '3721 White Avenue', 9, 2, 2, 2, 'House', 85000);
+    VALUES(13, '3721 White Avenue', 10, 2, 10, 2, 'House', 85000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(13, '3721 White Avenue', 10, 2, 2, 2, 'House', 85000);
+    VALUES(14, '19 Strawberry Street', 11, 4, 2, 3, 'House', 95000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(15, '88 Jungle Road', 12, 2, 12, 1, 'Apartment', 60000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(16, 'Haunted Street', 13, 4, 13, 1, 'Bungalow', 70000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
@@ -207,14 +211,22 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);
     
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES (7, 'Adam Smith', '4146345291', 'adam@buyer.ie', 400000, 900000, 2, 3, 10, 1);
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES (8, 'Paul Kubulius', '4146345391', 'paul@buyer.ie', 200000, 400000, 1, 1, 10, 1);
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES (9, 'Michael Lenghel', '4946345791', 'michael@buyer.ie', 500000, 950000, 3, 4, 10, 1);
+    
 INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES (1, 100000, 6);
 INSERT INTO ForSale(saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
     
 INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(1, 660, 1);
 INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(2, 1100, 5);
 
-INSERT INTO RentTransaction (rentTransID, companyID) VALUES (1, 1);
-INSERT INTO RentTransaction (rentTransID, companyID) VALUES (2, 1);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (1, 1, 14, 10, 7, 8);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (2, 1, 15, 5, 8, 1);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (3, 1, 16, 7, 9, 2);
 
 --INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     --VALUES (1, 1, 1, 1, 1, 1);
@@ -225,14 +237,14 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(3, 1, 7, 13, 5, 10);
 
-DECLARE
-v_id Seller.sellerID%TYPE :='&seller_ID';
-v_name Seller.sellerName%TYPE := '&sellers_name';
-v_phone Seller.sellerPhoneNum%TYPE := '&sellers_phone_number';
-v_email Seller.sellerEmail%TYPE := '&sellers_email';
-    Begin
-        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
-    End;
+--DECLARE
+--v_id Seller.sellerID%TYPE :='&seller_ID';
+--v_name Seller.sellerName%TYPE := '&sellers_name';
+--v_phone Seller.sellerPhoneNum%TYPE := '&sellers_phone_number';
+--v_email Seller.sellerEmail%TYPE := '&sellers_email';
+--    Begin
+--        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
+--    End;
 
 select * from buyer;
 select * from buytransaction;
