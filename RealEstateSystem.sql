@@ -51,7 +51,7 @@ CREATE TABLE Property (
     -- Y / N
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
-    price NUMBER(6) NULL,
+    price NUMBER(9) NULL,
     CONSTRAINT property_pk PRIMARY KEY (propertyID),
     CONSTRAINT seller_ID_property_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
@@ -66,7 +66,7 @@ CREATE TABLE ForRent (
 
 CREATE TABLE ForSale (
     saleID NUMBER(5) NOT NULL,
-    askingPrice NUMBER(8) NOT NULL,
+    askingPrice NUMBER(9) NOT NULL,
     propertyID NUMBER(5) NULL,
     CONSTRAINT for_sale_pk PRIMARY KEY (saleID),
     CONSTRAINT property_forSale FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
@@ -77,8 +77,8 @@ CREATE TABLE Buyer (
     buyerName VARCHAR2(50) NOT NULL,
     buyerPhoneNum VARCHAR2(13) NOT NULL,
     buyerEmail VARCHAR2(50) NOT NULL,
-    minPreferredPrice NUMBER(6) NOT NULL,
-    maxPreferredPrice NUMBER(6) NOT NULL,
+    minPreferredPrice NUMBER(9) NOT NULL,
+    maxPreferredPrice NUMBER(9) NOT NULL,
     bedrooms NUMBER(2) NOT NULL,
     bathrooms NUMBER(2) NOT NULL,
     agentID NUMBER(5) NULL,

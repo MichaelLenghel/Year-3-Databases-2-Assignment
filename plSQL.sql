@@ -170,11 +170,11 @@ INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, num
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(13, '3721 White Avenue', 10, 2, 10, 2, 'House', 85000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
-    VALUES(14, '19 Strawberry Street', 11, 4, 2, 3, 'House', 95000);
+    VALUES(14, '19 Strawberry Street', 8, 4, 2, 3, 'House', 95000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
-    VALUES(15, '88 Jungle Road', 12, 2, 12, 1, 'Apartment', 60000);
+    VALUES(15, '88 Jungle Road', 7, 2, 12, 1, 'Apartment', 60000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
-    VALUES(16, 'Haunted Street', 13, 4, 13, 1, 'Bungalow', 70000);
+    VALUES(16, 'Haunted Street', 6, 4, 13, 1, 'Bungalow', 70000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
@@ -236,13 +236,10 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(3, 1, 7, 13, 5, 10);
 
--- INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, hasGarden, price)
--- VALUES(1, '2350 Gibson Road', 1, 4, 1, 2, 'Bungalow', 'Y', 235000);
-
 SET SERVEROUTPUT ON 
 DECLARE
     --Increment propertyid and sellerid, rather than input
-    v_sID Seller.sellerID%TYPE := '&sellers_id';
+    v_id Seller.sellerID%TYPE := '&sellers_id';
     v_name Seller.sellerName%TYPE := '&sellers_name';
     v_phone Seller.sellerPhoneNum%TYPE := '&sellers_phone_number';
     v_email Seller.sellerEmail%TYPE := '&sellers_email';
@@ -252,13 +249,25 @@ DECLARE
     v_numToilets Property.numToilets%TYPE := '&num_toilets';
     v_price Property.price%TYPE := '&price';
     v_property_type Property.propertyType%TYPE := '&propertyType';
+    v_buyers Buyer.buyerName%TYPE;
     BEGIN
---        SELECT buyerName From Buyer
---        Where v_price < maxPreferredPrice;
---            INSERT INTO Seller VALUES
---            (v_sID, v_name, v_phone, v_email);
-        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| ' The sellers email is' || v_email);
+        DBMS_OUTPUT.PUT_LINE('Potential Buyers within price range: ');
+        FOR rec IN (SELECT Buyer.buyerName into v_buyers From Buyer
+                    Where v_price < maxPreferredPrice)
+        LOOP
+            DBMS_OUTPUT.PUT_LINE('Buyers: ' || rec.buyerName);
+        End LOOP;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            DBMS_OUTPUT.PUT_LINE('Nothing found');
+        WHEN OTHERS THEN
+            DBMS_OUTPUT.PUT_LINE('Input data incorrect. ' || SQLCODE || ' ' || SQLERRM);
+            DBMS_OUTPUT.PUT_LINE('Rolling back...');
+            ROLLBACK;
     End;
+    
+--    INSERT INTO Seller VALUES
+--        (v_sID, v_name, v_phone, v_email);
 
 
 
