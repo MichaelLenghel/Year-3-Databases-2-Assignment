@@ -226,8 +226,6 @@ INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerI
 INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (2, 1, 15, 5, 8, 1);
 INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (3, 1, 16, 7, 9, 2);
 
---INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    --VALUES (1, 1, 1, 1, 1, 1);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(1, 1, 10, 11, 3, 8);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
@@ -245,40 +243,27 @@ select * from property;
 select * from renttransaction;
 select * from seller;
 
---CREATE TABLE Property (
---    propertyID NUMBER(5) NOT NULL,
---    address VARCHAR2(50) NOT NULL,
---    sellerID NUMBER(5) NOT NULL,
---    numBedrooms NUMBER(2) NOT NULL,
---    numFloors NUMBER(2) NOT NULL,
---    numToilets NUMBER(2) NOT NULL,
---    -- type denotes house, apartment, bungalow, etc.
---    type VARCHAR2(50) NOT NULL,
---    -- Y / N
---    hasBalcony CHAR(1) DEFAULT 'N',
---    hasGarden CHAR(1) DEFAULT 'N',
---    price NUMBER(6) NULL,
-
 --BUYER PL/SQL
-/*
 SET SERVEROUTPUT ON
-DECLARE 
-   bedrooms Property.numBedrooms%TYPE :='&Number_of_bedrooms';
-   floors Property.numFloors%TYPE :='&Number_of_floors';
-   toilets Property.numToilets%TYPE :='&Number_of_toilets';
-   vaddress Property.address%TYPE :='&Number_of_toilets';
+DECLARE
+    maxPrice Property.price%TYPE :='&Max_Price';
+    bedrooms Property.numBedrooms%TYPE :='&Number_of_bedrooms';
 BEGIN
-    SELECT address, numBedrooms INTO c_name, c_addr, c_sal 
-    FROM customers 
-    dbms_output.put_line('Number of bedrooms: ' || bedrooms); 
-    dbms_output.put_line('Number of floors: ' || floors); 
-    dbms_output.put_line('Number of toilets: ' || toilets); 
+    FOR prop IN (SELECT address, price, numBedrooms, numToilets, hasBalcony, hasGarden
+    FROM Property
+    WHERE numBedrooms = bedrooms AND price <= maxPrice)
+    LOOP
+    dbms_output.put_line('Address: ' || prop.address); 
+    dbms_output.put_line('Price: $' || prop.price);
+    dbms_output.put_line('Number of Bedrooms: ' || prop.numBedrooms);
+    dbms_output.put_line('Number of toilets' || prop.numToilets);
+    dbms_output.put_line('Balcony: ' || prop.hasBalcony);
+    dbms_output.put_line('Garden: ' || prop.hasGarden);
+    dbms_output.put_line('');
+    END LOOP;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    dbms_output.put_line('Nothing Found');
+    WHEN OTHERS THEN
+    dbms_output.put_line('Error');
 END; 
-
-
-BEGIN 
-   SELECT name, address, salary INTO c_name, c_addr, c_sal 
-   FROM customers 
-   WHERE id = c_id;  
-   dbms_output.put_line 
-   ('Customer ' ||c_name || ' from ' || c_addr || ' earns ' || c_sal); 
