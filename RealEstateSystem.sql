@@ -225,14 +225,14 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(3, 1, 7, 13, 5, 10);
 
---DECLARE
---v_id Seller.sellerID%TYPE := '&Enter seller ID';
---v_name Seller.sellerName%TYPE := '&Enter the sellers name';
---v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
---v_email Seller.sellerEmail%TYPE := '&Enter sellers email';
---    Begin
---        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
---    End;
+DECLARE
+v_id Seller.sellerID%TYPE :='&seller_ID';
+v_name Seller.sellerName%TYPE := '&sellers_name';
+v_phone Seller.sellerPhoneNum%TYPE := '&sellers_phone_number';
+v_email Seller.sellerEmail%TYPE := '&sellers_email';
+    Begin
+        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
+    End;
 
 select * from buyer;
 select * from buytransaction;

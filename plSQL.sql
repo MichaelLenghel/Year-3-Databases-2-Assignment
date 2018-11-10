@@ -209,20 +209,14 @@ CREATE TABLE BuyTransaction (
 
 
     
---SELLER
---sellerID NUMBER(5) NOT NULL,
---    sellerName VARCHAR2(50) NOT NULL,
---    sellerPhoneNum VARCHAR2(13) NOT NULL,
---    sellerEmail VARCHAR2(50) NOT NULL,
 DECLARE
-v_id Seller.sellerID%TYPE := '&Enter seller ID';
-v_name Seller.sellerName%TYPE := '&Enter the sellers name';
-v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
-v_email Seller.sellerEmail%TYPE := '&Enter sellers ID';
+v_id Seller.sellerID%TYPE :='&seller_ID';
+v_name Seller.sellerName%TYPE := '&sellers_name';
+v_phone Seller.sellerPhoneNum%TYPE := '&sellers_phone_number';
+v_email Seller.sellerEmail%TYPE := '&sellers_email';
     Begin
         DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
     End;
-
 
 
 
