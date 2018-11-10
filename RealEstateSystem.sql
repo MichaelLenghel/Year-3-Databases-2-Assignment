@@ -64,7 +64,7 @@ CREATE TABLE Property (
     hasGarden CHAR(1) DEFAULT 'N',
     price NUMBER(6) NULL,
     CONSTRAINT property_pk PRIMARY KEY (propertyID),
-    CONSTRAINT seller_ID_buyer_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
+    CONSTRAINT seller_ID_property_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
 
 CREATE TABLE Buyer (
