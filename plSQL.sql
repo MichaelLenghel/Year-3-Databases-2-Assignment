@@ -19,7 +19,6 @@ CREATE TABLE Company (
     CONSTRAINT company_pk PRIMARY KEY(companyID)
 );
 
--- eamonn pl-sql for this 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
     agentName VARCHAR2(50) NOT NULL,
@@ -29,6 +28,22 @@ CREATE TABLE EstateAgent (
     companyID NUMBER(6) NULL,
     CONSTRAINT agent_pk PRIMARY KEY(agentID),
     CONSTRAINT company_agent_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
+);
+
+CREATE TABLE ForSale (
+    saleID NUMBER(5) NOT NULL,
+    askingPrice NUMBER(8) NOT NULL,
+    propertyID NUMBER(5) NULL,
+    CONSTRAINT for_sale_pk PRIMARY KEY (saleID),
+    CONSTRAINT property_forSale FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
+);
+
+CREATE TABLE ForRent (
+    rentID NUMBER(5) NOT NULL,
+    monthlyRent NUMBER(8) NOT NULL,
+    propertyID NUMBER(5) NULL,
+    CONSTRAINT for_rent_pk PRIMARY KEY (rentID),
+    CONSTRAINT property_forSale_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
 );
 
 CREATE TABLE Seller (
@@ -52,24 +67,10 @@ CREATE TABLE Property (
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
     price NUMBER(6) NULL,
+    forRentID NUMBER(5) NULL,
+    forSaleID NUMBER(5) NULL,
     CONSTRAINT property_pk PRIMARY KEY (propertyID),
     CONSTRAINT seller_ID_property_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
-);
-
-CREATE TABLE ForRent (
-    rentID NUMBER(5) NOT NULL,
-    monthlyRent NUMBER(8) NOT NULL,
-    propertyID NUMBER(5) NULL,
-    CONSTRAINT for_rent_pk PRIMARY KEY (rentID),
-    CONSTRAINT property_forSale_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
-);
-
-CREATE TABLE ForSale (
-    saleID NUMBER(5) NOT NULL,
-    askingPrice NUMBER(8) NOT NULL,
-    propertyID NUMBER(5) NULL,
-    CONSTRAINT for_sale_pk PRIMARY KEY (saleID),
-    CONSTRAINT property_forSale FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
 );
 
 CREATE TABLE Buyer (
@@ -107,36 +108,11 @@ CREATE TABLE BuyTransaction (
 CREATE TABLE RentTransaction (
     rentTransID NUMBER(5) NOT NULL,
     companyID NUMBER(5) NULL,
-    propertyID NUMBER(5) NULL,
     CONSTRAINT rentTrans_pk PRIMARY KEY(rentTransID),
-    CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID),
-    CONSTRAINT propertyID_rentTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID)
+    CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
 );
 
-COMMIT;
-
 INSERT INTO Company VALUES(1, 'E-State Properties');
-
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(2, 'Michael Lenghel', '123400122', 'michael@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(3, 'jim Walsh', '123400123', 'jim@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(4, 'timmy Walsh', '123400124', 'timmy@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(5, 'lacoste Walsh', '123400125', 'lacoste@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(6, 'John Walsh', '123400126', 'John@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(7, 'ran Walsh', '123400127', 'ran@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(8, 'Albert Hoffman', '123400128', 'albert@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(9, 'Micycle Menghel', '123400129', 'micycle@seller.ie');
-INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
-    VALUES(10, 'David D. Larsen', '123400130', 'david@seller.ie');
 
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
     VALUES(1, '2350 Gibson Road', 1, 4, 1, 2, 'Bungalow', 'Y', 235000);
@@ -160,12 +136,6 @@ INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, num
     VALUES(10, '179 Tinker Road', 5, 1, 1, 1, 'Apartment', 90000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
     VALUES(11, '179 Lysergic Road', 3, 3, 2, 3, 'House', 125000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(12, '179 Endensummer Street', 8, 1, 1, 2, 'Bungalow', 75000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(13, '3721 White Avenue', 9, 2, 2, 2, 'House', 85000);
-INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(13, '3721 White Avenue', 10, 2, 2, 2, 'House', 85000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
@@ -192,57 +162,83 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
     VALUES(1, 'John Nay', '125345790', 'johnnay@mail.ie', 250000, 275000, 4, 2, 1, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(2, 'Retina Grey', '146345790', 'tinag@mail.ie', 90000, 100000, 1, 1, 1, 1);
-INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES(3, 'Renata Coolier', '146345791', 'renata@mail.ie', 95000, 150000, 3, 3, 10, 1);
-INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES(4, 'Bichael Benghel', '146345792', 'bichael@mail.ie', 60000, 80000, 2, 2, 5, 1);
-INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES(5, 'Christopher B. Garner', '146345793', 'chris@mail.ie', 80000, 90000, 2, 2, 7, 1);
-INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);
-    
+
 INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES (1, 100000, 6);
 INSERT INTO ForSale(saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
     
 INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(1, 660, 1);
 INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(2, 1100, 5);
 
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(2, 'Michael Lenghel', '123400122', 'michael@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(3, 'jim Walsh', '123400123', 'jim@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(4, 'timmy Walsh', '123400124', 'timmy@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(5, 'lacoste Walsh', '123400125', 'lacoste@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(6, 'John Walsh', '123400126', 'John@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(7, 'ran Walsh', '123400127', 'ran@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(8, 'Albert Hoffman', '123400128', 'albert@seller.ie');
+
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (1, 1);
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (2, 1);
 
---INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    --VALUES (1, 1, 1, 1, 1, 1);
-INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    VALUES(1, 1, 10, 11, 3, 8);
-INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    VALUES(2, 1, 5, 12, 4, 9);
-INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    VALUES(3, 1, 7, 13, 5, 10);
+/*
+CREATE TABLE BuyTransaction (
+    buyTransID NUMBER(5) NOT NULL,
+    companyID NUMBER(5) NOT NULL,
+    agentID NUMBER(5) NOT NULL,
+    propertyID NUMBER(5) NOT NULL,
+    buyerID NUMBER(5) NOT NULL,
+    sellerID NUMBER(5) NOT NULL,
+    CONSTRAINT buyTrans_pk PRIMARY KEY(buyTransID),
+    CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company(companyID),
+    CONSTRAINT agentID_buyTrans_fk FOREIGN KEY (agentID) REFERENCES EstateAgent (agentID),
+    CONSTRAINT propertyID_buyTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
+    CONSTRAINT buyerID_buyTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
+    CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID) */
+    
+/*INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
+    VALUES(1, 1, 10, 11, */
 
 
+    
 --SELLER
 --sellerID NUMBER(5) NOT NULL,
 --    sellerName VARCHAR2(50) NOT NULL,
 --    sellerPhoneNum VARCHAR2(13) NOT NULL,
 --    sellerEmail VARCHAR2(50) NOT NULL,
---DECLARE
---v_id Seller.sellerID%TYPE := '&Enter seller ID';
---v_name Seller.sellerName%TYPE := '&Enter the sellers name';
---v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
---v_email Seller.sellerEmail%TYPE := '&Enter sellers ID';
---
---v_job emp3.job%TYPE := '&ENTER_Job';
---v_cnt INTEGER;
---    Begin
---        DBMS_OUTPUT.PUT_LINE('The Salary of '||v_cnt||' Employees are Incremented by 100');
---    End;
+DECLARE
+v_id Seller.sellerID%TYPE := '&Enter seller ID';
+v_name Seller.sellerName%TYPE := '&Enter the sellers name';
+v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
+v_email Seller.sellerEmail%TYPE := '&Enter sellers ID';
 
-select * from buyer;
-select * from buytransaction;
-select * from company;
-select * from estateagent;
-select * from forrent;
-select * from forsale;
-select * from property;
-select * from renttransaction;
-select * from seller;
+v_job emp3.job%TYPE := '&ENTER_Job';
+v_cnt INTEGER;
+    Begin
+        DBMS_OUTPUT.PUT_LINE('The Salary of '||v_cnt||' Employees are Incremented by 100');
+    End;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
