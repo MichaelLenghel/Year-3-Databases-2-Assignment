@@ -19,7 +19,6 @@ CREATE TABLE Company (
     CONSTRAINT company_pk PRIMARY KEY(companyID)
 );
 
-
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
     agentName VARCHAR2(50) NOT NULL,
@@ -123,7 +122,7 @@ INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToi
 INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
     VALUES(7, '256 Florida Street', 'Michael Kohen', 5, 2, 2, 'House', 179280);
 INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
-    VALUES(8, '1717 Kansas Street', 'Leah Mars',3, 2, 1, 'Semi-detached', 'Y', 345000);
+    VALUES(8, '1717 Kansas Street', 'Leah Mars',3, 2, 1, 'Semi-Detached', 'Y', 345000);
 INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
     VALUES(9, '2613 Academic Way', 'Marry Song', 8, 3, 3, 'Mansion', 'Y', 'Y', 997050);
 INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
