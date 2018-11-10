@@ -14,6 +14,7 @@ CREATE TABLE Company (
     CONSTRAINT company_pk PRIMARY KEY(companyID)
 );
 --This is a comment
+-- this is a another test comment
 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
