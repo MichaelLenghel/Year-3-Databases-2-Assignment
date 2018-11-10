@@ -129,6 +129,10 @@ INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(7, 'ran Walsh', '123400127', 'ran@seller.ie');
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(8, 'Albert Hoffman', '123400128', 'albert@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(9, 'Micycle Menghel', '123400129', 'micycle@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(10, 'David D. Larsen', '123400130', 'david@seller.ie');
 
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
     VALUES(1, '2350 Gibson Road', 1, 4, 1, 2, 'Bungalow', 'Y', 235000);
@@ -152,6 +156,12 @@ INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, num
     VALUES(10, '179 Tinker Road', 5, 1, 1, 1, 'Apartment', 90000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
     VALUES(11, '179 Lysergic Road', 3, 3, 2, 3, 'House', 125000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(12, '179 Endensummer Street', 8, 1, 1, 2, 'Bungalow', 75000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(13, '3721 White Avenue', 9, 2, 2, 2, 'House', 85000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(13, '3721 White Avenue', 10, 2, 2, 2, 'House', 85000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
@@ -178,6 +188,12 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
     VALUES(1, 'John Nay', '125345790', 'johnnay@mail.ie', 250000, 275000, 4, 2, 1, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(2, 'Retina Grey', '146345790', 'tinag@mail.ie', 90000, 100000, 1, 1, 1, 1);
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES(3, 'Renata Coolier', '146345791', 'renata@mail.ie', 95000, 150000, 3, 3, 10, 1);
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES(4, 'Bichael Benghel', '146345792', 'bichael@mail.ie', 60000, 80000, 2, 2, 5, 1);
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES(5, 'Christopher B. Garner', '146345793', 'chris@mail.ie', 80000, 90000, 2, 2, 7, 1);
 
 INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES (1, 100000, 6);
 INSERT INTO ForSale(saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
@@ -202,7 +218,9 @@ CREATE TABLE BuyTransaction (
     CONSTRAINT propertyID_buyTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
     CONSTRAINT buyerID_buyTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
     CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID) */
-    
-/*INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
-    VALUES(1, 1, 10, 11, 
-
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
+    VALUES(1, 1, 10, 11, 3, 8);
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
+    VALUES(2, 1, 5, 12, 4, 9);
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
+    VALUES(3, 1, 7, 13, 5, 10);
