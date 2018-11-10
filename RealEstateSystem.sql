@@ -128,6 +128,8 @@ INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToi
     VALUES(9, '2613 Academic Way', 'Marry Song', 8, 3, 3, 'Mansion', 'Y', 'Y', 997050);
 INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
     VALUES(10, '179 Tinker Road', 'Leon Kant', 1, 1, 1, 'Apartment', 90000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(11, '179 Lysergic Road', 'Albert Hoffman', 3, 2, 3, 'House', 125000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
@@ -167,5 +169,21 @@ INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (1, 1);
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (2, 1);
 
-
+/*
+CREATE TABLE BuyTransaction (
+    buyTransID NUMBER(5) NOT NULL,
+    companyID NUMBER(5) NOT NULL,
+    agentID NUMBER(5) NOT NULL,
+    propertyID NUMBER(5) NOT NULL,
+    buyerID NUMBER(5) NOT NULL,
+    sellerID NUMBER(5) NOT NULL,
+    CONSTRAINT buyTrans_pk PRIMARY KEY(buyTransID),
+    CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company(companyID),
+    CONSTRAINT agentID_buyTrans_fk FOREIGN KEY (agentID) REFERENCES EstateAgent (agentID),
+    CONSTRAINT propertyID_buyTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
+    CONSTRAINT buyerID_buyTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
+    CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID) */
+    
+INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
+    VALUES(1, 1, 10, 11, 
 
