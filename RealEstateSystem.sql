@@ -15,6 +15,7 @@ CREATE TABLE Company (
 );
 --This is a comment
 -- this is a another test comment
+--This is a another comment
 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
