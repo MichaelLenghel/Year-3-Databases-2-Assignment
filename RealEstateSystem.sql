@@ -19,6 +19,7 @@ CREATE TABLE Company (
     CONSTRAINT company_pk PRIMARY KEY(companyID)
 );
 
+-- eamonn pl-sql for this 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
     agentName VARCHAR2(50) NOT NULL,
@@ -106,8 +107,10 @@ CREATE TABLE BuyTransaction (
 CREATE TABLE RentTransaction (
     rentTransID NUMBER(5) NOT NULL,
     companyID NUMBER(5) NULL,
+    propertyID NUMBER(5) NULL,
     CONSTRAINT rentTrans_pk PRIMARY KEY(rentTransID),
-    CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
+    CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID),
+    CONSTRAINT propertyID_rentTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID)
 );
 
 COMMIT;
@@ -189,6 +192,8 @@ INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(2, 1100, 5);
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (1, 1);
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (2, 1);
 
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
+    VALUES (1, 1, 1, 1, 1, 1);
 /*
 CREATE TABLE BuyTransaction (
     buyTransID NUMBER(5) NOT NULL,
@@ -206,4 +211,14 @@ CREATE TABLE BuyTransaction (
     
 /*INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
     VALUES(1, 1, 10, 11, 
+*/
 
+select * from buyer;
+select * from buytransaction;
+select * from company;
+select * from estateagent;
+select * from forrent;
+select * from forsale;
+select * from property;
+select * from renttransaction;
+select * from seller;
