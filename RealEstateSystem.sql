@@ -13,6 +13,7 @@ CREATE TABLE Company (
     companyName VARCHAR2(50) NOT NULL,
     CONSTRAINT company_pk PRIMARY KEY(companyID)
 );
+--This is a comment
 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
