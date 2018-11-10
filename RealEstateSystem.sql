@@ -2,7 +2,6 @@ DROP TABLE RentTransaction CASCADE CONSTRAINTS PURGE;
 DROP TABLE BuyTransaction CASCADE CONSTRAINTS PURGE;
 DROP TABLE Seller CASCADE CONSTRAINTS PURGE;
 DROP TABLE Buyer CASCADE CONSTRAINTS PURGE;
-DROP TABLE House CASCADE CONSTRAINTS PURGE;
 DROP TABLE Property CASCADE CONSTRAINTS PURGE;
 DROP TABLE ForRent CASCADE CONSTRAINTS PURGE;
 DROP TABLE ForSale CASCADE CONSTRAINTS PURGE;
@@ -28,28 +27,29 @@ CREATE TABLE EstateAgent (
 
 CREATE TABLE ForSale (
     saleID NUMBER(5) NOT NULL,
-    askingPrice NUMBER(5) NOT NULL,
-    CONSTRAINT sale_pk PRIMARY KEY (saleID)
+    askingPrice NUMBER(8) NOT NULL,
+    CONSTRAINT for_sale_pk PRIMARY KEY (saleID)
 );
 
 CREATE TABLE ForRent (
     rentID NUMBER(5) NOT NULL,
-    monthlyRent NUMBER(5) NOT NULL,
-    CONSTRAINT rent_pk PRIMARY KEY (rentID)
+    monthlyRent NUMBER(8) NOT NULL,
+    CONSTRAINT for_rent_pk PRIMARY KEY (rentID)
 );
 
 CREATE TABLE Property (
     propertyID NUMBER(5) NOT NULL,
-    numToilets NUMBER(3) NOT NULL,
-    numFloors NUMBER(3) NOT NULL,
     address VARCHAR2(50) NOT NULL,
     owner VARCHAR2(50) NULL,
-    numBedrooms VARCHAR2(50) NOT NULL,
-    # i.e. House, apartment, bungalow
-    houseType VARCHAR2(50) NOT NULL,
-    # 'Y' / 'N' for all have variables
-    haveBalacony VARCHAR2(50) NOT NULL,
-    haveGarden VARCHAR2(50) NOT NULL,
+    numBedrooms NUMBER(2) NOT NULL,
+    numFloors NUMBER(2) NOT NULL,
+    numToilets NUMBER(2) NOT NULL,
+    # type denotes house, apartment, bungalow, etc.
+    type VARCHAR2(50) NOT NULL,
+    # Y / N
+    hasBalcony CHAR(1) DEFAULT 'N',
+    hasGarden CHAR(1) DEFAULT 'N',
+    price NUMBER(6) NULL,
     CONSTRAINT property_pk PRIMARY KEY (propertyID)
 );
 
@@ -62,8 +62,8 @@ CREATE TABLE Buyer (
     maxPreferredPrice NUMBER(6) NOT NULL,
     bedrooms NUMBER(2) NOT NULL,
     bathrooms NUMBER(2) NOT NULL,
-    agentID NUMBER(6) NULL,
-    companyID NUMBER(6) NULL,
+    agentID NUMBER(5) NULL,
+    companyID NUMBER(5) NULL,
     CONSTRAINT buyer_pk PRIMARY KEY (buyerID, agentID, companyID)
 );
 
@@ -78,16 +78,8 @@ CREATE TABLE Seller (
 CREATE TABLE BuyTransaction (
     buyTransID NUMBER(5) NOT NULL,
     companyID NUMBER(5) NULL,
-    agentID NUMBER(5) NOT NULL,
-    propertyID NUMBER(5) NOT NULL,
-    buyerID NUMBER(5) NOT NULL,
-    sellerID NUMBER(5) NOT NULL,
     CONSTRAINT buyTrans_pk PRIMARY KEY(buyTransID),
-    CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID),
-    CONSTRAINT agentID_buyTrans_fk FOREIGN KEY (agentID) REFERENCES EstateAgent (agentID),
-    CONSTRAINT propertyID_buyTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
-    CONSTRAINT BuyerID_buyTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
-    CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES seller (sellerID)
+    CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
 );
 
 CREATE TABLE RentTransaction (
@@ -97,26 +89,48 @@ CREATE TABLE RentTransaction (
     CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
 );
 
-INSERT INTO Company(1, 'E-State Properties');
+INSERT INTO Company VALUES(1, 'E-State Properties');
 
-INSERT INTO Property VALUES(1, '2350 Gibson Road', 'John Smith', 235000);
-INSERT INTO Property VALUES(2, '197 Watson Street', 'Raymond Chou', 789000);
-INSERT INTO Property VALUES(3, '2525 Pottsdamer Street', 'Jim Lee', 100500);
-INSERT INTO Property VALUES(4, '193 Love BLVD', 'Kim Abudal', 930000);
-INSERT INTO Property VALUES(5, '647 Maston Road', 'Robert Clue', 135000);
-INSERT INTO Property VALUES(6, '1350 Navada Street', 'Jack Green', 674090);
-INSERT INTO Property VALUES(7, '256 Florida Street', 'Michael Kohen', 179280);
-INSERT INTO Property VALUES(8, '1717 Kansas Street', 'Leah Mars', 345000);
-INSERT INTO Property VALUES(9, '2613 Academic Way', 'Marry Song', 997050);
-INSERT INTO Property VALUES(10, '179 Tinker Road', 'Leon Kant', 90000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+    VALUES(1, '2350 Gibson Road', 'John Smith', 4, 1, 2, 'Bungalow', 'Y', 235000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, price) 
+    VALUES(2, '197 Watson Street', 'Raymond Chou', 3, 1, 2, 'Apartment', 'Y', 789000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(3, '2525 Pottsdamer Street', 'Jim Lee', 1, 1, 1, 'Apartment', 100500);
+--INSERT INTO Property VALUES(4, '193 Love BLVD', 'Kim Abudal', 930000);
+--INSERT INTO Property VALUES(5, '647 Maston Road', 'Robert Clue', 135000);
+--INSERT INTO Property VALUES(6, '1350 Navada Street', 'Jack Green', 674090);
+--INSERT INTO Property VALUES(7, '256 Florida Street', 'Michael Kohen', 179280);
+--INSERT INTO Property VALUES(8, '1717 Kansas Street', 'Leah Mars', 345000);
+--INSERT INTO Property VALUES(9, '2613 Academic Way', 'Marry Song', 997050);
+--INSERT INTO Property VALUES(10, '179 Tinker Road', 'Leon Kant', 90000);
 
-INSERT INTO EstateAgent VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', '2012/01/23', 1);
-INSERT INTO EstateAgent VALUES(2, 'Jim Alpha', '171135636', 'alphadog@es.ie', '2012/03/26', 1);
-INSERT INTO EstateAgent VALUES(3, 'George Grey', '176321636', 'grey@es.ie', '2015/02/23', 1);
-INSERT INTO EstateAgent VALUES(4, 'Sarah Core', '135145909', 'sarahc@es.ie', '2016/07/03', 1);
-INSERT INTO EstateAgent VALUES(5, 'Livia Watson', '137145638', 'lwatson@es.ie', '2014/01/17', 1);
-INSERT INTO EstateAgent VALUES(6, 'Nik Ray', '135873630', 'rayray@es.ie', '2014/01/28', 1);
-INSERT INTO EstateAgent VALUES(7, 'Cris Paul', '136141236', 'paulcris@es.ie', '2016/05/23', 1);
-INSERT INTO EstateAgent VALUES(8, 'Lena Clay', '137145123', 'clena@es.ie', '2014/08/19', 1);
-INSERT INTO EstateAgent VALUES(9, 'Kevin Nil', '190145636', 'kevinnil@es.ie', '2011/07/20', 1);
-INSERT INTO EstateAgent VALUES(10, 'Hugh Grant', '132145639', 'hughgrant@es.ie', '2012/12/31', 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(2, 'Jim Alpha', '171135636', 'alphadog@es.ie', TO_TIMESTAMP('2012-03-26', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(3, 'George Grey', '176321636', 'grey@es.ie', TO_TIMESTAMP('2015-02-23', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(4, 'Sarah Core', '135145909', 'sarahc@es.ie', TO_TIMESTAMP('2016-07-03', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(5, 'Livia Watson', '137145638', 'lwatson@es.ie', TO_TIMESTAMP('2014-01-17', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(6, 'Nik Ray', '135873630', 'rayray@es.ie', TO_TIMESTAMP('2014-01-28', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(7, 'Cris Paul', '136141236', 'paulcris@es.ie', TO_TIMESTAMP('2016-05-23', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(8, 'Lena Clay', '137145123', 'clena@es.ie', TO_TIMESTAMP('2014-08-19', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(9, 'Kevin Nil', '190145636', 'kevinnil@es.ie', TO_TIMESTAMP('2011-07-20', 'YYYY-MM-DD'), 1);
+--INSERT INTO EstateAgent VALUES(10, 'Hugh Grant', '132145639', 'hughgrant@es.ie', TO_TIMESTAMP('2012-12-31', 'YYYY--MM-DD'), 1);
+
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES(1, 'John Nay', '125345790', 'johnnay@mail.ie', 250000, 275000, 4, 2, 1, 1);
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES(2, 'Retina Grey', '146345790', 'tinag@mail.ie', 90000, 100000, 1, 1, 1, 1);
+
+INSERT INTO ForSale (saleID, askingPrice) VALUES (1, 100000);
+INSERT INTO ForSale(saleID, askingPrice) VALUES(2, 550000);
+    
+INSERT INTO ForRent(rentID, monthlyRent) VALUES(1, 660);
+INSERT INTO ForRent(rentID, monthlyRent) VALUES(2, 1100);
+
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
+
+
+
