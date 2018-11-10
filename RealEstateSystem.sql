@@ -45,7 +45,7 @@ CREATE TABLE ForRent (
 CREATE TABLE Property (
     propertyID NUMBER(5) NOT NULL,
     address VARCHAR2(50) NOT NULL,
-    owner VARCHAR2(50) NULL,
+    sellerID NUMBER(5) NOT NULL,
     numBedrooms NUMBER(2) NOT NULL,
     numFloors NUMBER(2) NOT NULL,
     numToilets NUMBER(2) NOT NULL,
@@ -55,7 +55,8 @@ CREATE TABLE Property (
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
     price NUMBER(6) NULL,
-    CONSTRAINT property_pk PRIMARY KEY (propertyID)
+    CONSTRAINT property_pk PRIMARY KEY (propertyID),
+    CONSTRAINT seller_ID_buyer_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
 
 CREATE TABLE Buyer (
@@ -195,6 +196,6 @@ CREATE TABLE BuyTransaction (
     CONSTRAINT buyerID_buyTrans_fk FOREIGN KEY (buyerID) REFERENCES Buyer (buyerID),
     CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID) */
     
-INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
+/*INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
     VALUES(1, 1, 10, 11, 
 
