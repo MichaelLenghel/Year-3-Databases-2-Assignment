@@ -208,8 +208,7 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(5, 'Christopher B. Garner', '146345793', 'chris@mail.ie', 80000, 90000, 2, 2, 7, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);
-    
+    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);    
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES (7, 'Adam Smith', '4146345291', 'adam@buyer.ie', 400000, 900000, 2, 3, 10, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
@@ -227,8 +226,6 @@ INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerI
 INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (2, 1, 15, 5, 8, 1);
 INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (3, 1, 16, 7, 9, 2);
 
---INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    --VALUES (1, 1, 1, 1, 1, 1);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
     VALUES(1, 1, 10, 11, 3, 8);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
