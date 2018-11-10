@@ -212,14 +212,11 @@ CREATE TABLE BuyTransaction (
 --    sellerName VARCHAR2(50) NOT NULL,
 --    sellerPhoneNum VARCHAR2(13) NOT NULL,
 --    sellerEmail VARCHAR2(50) NOT NULL,
---DECLARE
---v_id Seller.sellerID%TYPE := '&Enter seller ID';
---v_name Seller.sellerName%TYPE := '&Enter the sellers name';
---v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
---v_email Seller.sellerEmail%TYPE := '&Enter sellers ID';
---
---v_job emp3.job%TYPE := '&ENTER_Job';
---v_cnt INTEGER;
---    Begin
---        DBMS_OUTPUT.PUT_LINE('The Salary of '||v_cnt||' Employees are Incremented by 100');
---    End;
+DECLARE
+v_id Seller.sellerID%TYPE := '&Enter seller ID';
+v_name Seller.sellerName%TYPE := '&Enter the sellers name';
+v_phone Seller.sellerPhoneNum%TYPE := '&Enter the sellers phone number';
+v_email Seller.sellerEmail%TYPE := '&Enter sellers ID';
+    Begin
+        DBMS_OUTPUT.PUT_LINE('The sellers id is: '||v_id||' The sellers name is: '||v_name || ' The sellers number is: ' ||v_phone|| 'The sellers email is' || v_email);
+    End;
