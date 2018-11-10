@@ -209,8 +209,7 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(5, 'Christopher B. Garner', '146345793', 'chris@mail.ie', 80000, 90000, 2, 2, 7, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);
-    
+    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);    
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES (7, 'Adam Smith', '4146345291', 'adam@buyer.ie', 400000, 900000, 2, 3, 10, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
@@ -255,3 +254,41 @@ select * from forsale;
 select * from property;
 select * from renttransaction;
 select * from seller;
+
+--CREATE TABLE Property (
+--    propertyID NUMBER(5) NOT NULL,
+--    address VARCHAR2(50) NOT NULL,
+--    sellerID NUMBER(5) NOT NULL,
+--    numBedrooms NUMBER(2) NOT NULL,
+--    numFloors NUMBER(2) NOT NULL,
+--    numToilets NUMBER(2) NOT NULL,
+--    -- type denotes house, apartment, bungalow, etc.
+--    type VARCHAR2(50) NOT NULL,
+--    -- Y / N
+--    hasBalcony CHAR(1) DEFAULT 'N',
+--    hasGarden CHAR(1) DEFAULT 'N',
+--    price NUMBER(6) NULL,
+
+--BUYER PL/SQL
+/*
+SET SERVEROUTPUT ON
+DECLARE 
+   bedrooms Property.numBedrooms%TYPE :='&Number_of_bedrooms';
+   floors Property.numFloors%TYPE :='&Number_of_floors';
+   toilets Property.numToilets%TYPE :='&Number_of_toilets';
+   vaddress Property.address%TYPE :='&Number_of_toilets';
+BEGIN
+    SELECT address, numBedrooms INTO c_name, c_addr, c_sal 
+    FROM customers 
+    dbms_output.put_line('Number of bedrooms: ' || bedrooms); 
+    dbms_output.put_line('Number of floors: ' || floors); 
+    dbms_output.put_line('Number of toilets: ' || toilets); 
+END; 
+
+
+BEGIN 
+   SELECT name, address, salary INTO c_name, c_addr, c_sal 
+   FROM customers 
+   WHERE id = c_id;  
+   dbms_output.put_line 
+   ('Customer ' ||c_name || ' from ' || c_addr || ' earns ' || c_sal); 
