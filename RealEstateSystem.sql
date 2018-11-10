@@ -1,3 +1,8 @@
+# Student Name: Michael Lenghel Student Number: C16434974
+# Student Name: Eamonn Keogh Student Number: C16757629
+# Student Name: Povilas Kubilius Student Number: c16370803
+
+
 DROP TABLE RentTransaction CASCADE CONSTRAINTS PURGE;
 DROP TABLE BuyTransaction CASCADE CONSTRAINTS PURGE;
 DROP TABLE Seller CASCADE CONSTRAINTS PURGE;
