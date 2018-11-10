@@ -33,13 +33,17 @@ CREATE TABLE EstateAgent (
 CREATE TABLE ForSale (
     saleID NUMBER(5) NOT NULL,
     askingPrice NUMBER(8) NOT NULL,
-    CONSTRAINT for_sale_pk PRIMARY KEY (saleID)
+    propertyID NUMBER(5) NULL,
+    CONSTRAINT for_sale_pk PRIMARY KEY (saleID),
+    CONSTRAINT property_forSale FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
 );
 
 CREATE TABLE ForRent (
     rentID NUMBER(5) NOT NULL,
     monthlyRent NUMBER(8) NOT NULL,
-    CONSTRAINT for_rent_pk PRIMARY KEY (rentID)
+    propertyID NUMBER(5) NULL,
+    CONSTRAINT for_rent_pk PRIMARY KEY (rentID),
+    CONSTRAINT property_forSale_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
 );
 
 CREATE TABLE Property (
@@ -55,8 +59,13 @@ CREATE TABLE Property (
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
     price NUMBER(6) NULL,
+    forRentID NUMBER(5) NULL,
+    forSaleID NUMBER(5) NULL,
     CONSTRAINT property_pk PRIMARY KEY (propertyID),
-    CONSTRAINT seller_ID_buyer_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
+    CONSTRAINT seller_ID_buyer_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID),
+    CONSTRAINT forRent_propertyID_fk FOREIGN KEY (propertyID) REFERENCES ForRent (rentID),
+    CONSTRAINT forSale_propertyID_fk FOREIGN KEY (propertyID) REFERENCES ForSale (saleID)
+
 );
 
 CREATE TABLE Buyer (
@@ -157,11 +166,11 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(2, 'Retina Grey', '146345790', 'tinag@mail.ie', 90000, 100000, 1, 1, 1, 1);
 
-INSERT INTO ForSale (saleID, askingPrice) VALUES (1, 100000);
-INSERT INTO ForSale(saleID, askingPrice) VALUES(2, 550000);
+INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES (1, 100000, 6);
+INSERT INTO ForSale(saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
     
-INSERT INTO ForRent(rentID, monthlyRent) VALUES(1, 660);
-INSERT INTO ForRent(rentID, monthlyRent) VALUES(2, 1100);
+INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(1, 660, 1);
+INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(2, 1100, 5);
 
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
