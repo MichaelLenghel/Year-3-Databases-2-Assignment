@@ -170,11 +170,11 @@ INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, num
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
     VALUES(13, '3721 White Avenue', 10, 2, 10, 2, 'House', 85000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
-    VALUES(14, '19 Strawberry Street', 11, 4, 2, 3, 'House', 95000);
+    VALUES(14, '19 Strawberry Street', 8, 4, 2, 3, 'House', 95000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
-    VALUES(15, '88 Jungle Road', 12, 2, 12, 1, 'Apartment', 60000);
+    VALUES(15, '88 Jungle Road', 7, 2, 12, 1, 'Apartment', 60000);
 INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, propertyType, price)
-    VALUES(16, 'Haunted Street', 13, 4, 13, 1, 'Bungalow', 70000);
+    VALUES(16, 'Haunted Street', 6, 4, 13, 1, 'Bungalow', 70000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
