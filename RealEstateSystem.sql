@@ -15,6 +15,7 @@ CREATE TABLE Company (
 );
 --This is a comment
 -- this is a another test comment
+-- This is a test of a tester comment 
 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
@@ -99,26 +100,41 @@ INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToi
     VALUES(2, '197 Watson Street', 'Raymond Chou', 3, 1, 2, 'Apartment', 'Y', 789000);
 INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
     VALUES(3, '2525 Pottsdamer Street', 'Jim Lee', 1, 1, 1, 'Apartment', 100500);
---INSERT INTO Property VALUES(4, '193 Love BLVD', 'Kim Abudal', 930000);
---INSERT INTO Property VALUES(5, '647 Maston Road', 'Robert Clue', 135000);
---INSERT INTO Property VALUES(6, '1350 Navada Street', 'Jack Green', 674090);
---INSERT INTO Property VALUES(7, '256 Florida Street', 'Michael Kohen', 179280);
---INSERT INTO Property VALUES(8, '1717 Kansas Street', 'Leah Mars', 345000);
---INSERT INTO Property VALUES(9, '2613 Academic Way', 'Marry Song', 997050);
---INSERT INTO Property VALUES(10, '179 Tinker Road', 'Leon Kant', 90000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
+    VALUES(4, '193 Love BLVD', 'Kim Abudal', 6, 3, 6, 'House', 'Y', 'Y', 930000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(5, '647 Maston Road', 'Robert Clue', 2, 1, 1, 'Apartment', 135000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+    VALUES(6, '1350 Navada Street', 'Jack Green', 4, 2, 2, 'House', 'Y', 674090);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(7, '256 Florida Street', 'Michael Kohen', 5, 2, 2, 'House', 179280);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+    VALUES(8, '1717 Kansas Street', 'Leah Mars',3, 2, 1, 'Semi-detached', 'Y', 345000);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
+    VALUES(9, '2613 Academic Way', 'Marry Song', 8, 3, 3, 'Mansion', 'Y', 'Y', 997050);
+INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(10, '179 Tinker Road', 'Leon Kant', 1, 1, 1, 'Apartment', 90000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(2, 'Jim Alpha', '171135636', 'alphadog@es.ie', TO_TIMESTAMP('2012-03-26', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(3, 'George Grey', '176321636', 'grey@es.ie', TO_TIMESTAMP('2015-02-23', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(4, 'Sarah Core', '135145909', 'sarahc@es.ie', TO_TIMESTAMP('2016-07-03', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(5, 'Livia Watson', '137145638', 'lwatson@es.ie', TO_TIMESTAMP('2014-01-17', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(6, 'Nik Ray', '135873630', 'rayray@es.ie', TO_TIMESTAMP('2014-01-28', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(7, 'Cris Paul', '136141236', 'paulcris@es.ie', TO_TIMESTAMP('2016-05-23', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(8, 'Lena Clay', '137145123', 'clena@es.ie', TO_TIMESTAMP('2014-08-19', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(9, 'Kevin Nil', '190145636', 'kevinnil@es.ie', TO_TIMESTAMP('2011-07-20', 'YYYY-MM-DD'), 1);
---INSERT INTO EstateAgent VALUES(10, 'Hugh Grant', '132145639', 'hughgrant@es.ie', TO_TIMESTAMP('2012-12-31', 'YYYY--MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(3, 'George Grey', '176321636', 'grey@es.ie', TO_TIMESTAMP('2015-02-23', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(4, 'Sarah Core', '135145909', 'sarahc@es.ie', TO_TIMESTAMP('2016-07-03', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(5, 'Livia Watson', '137145638', 'lwatson@es.ie', TO_TIMESTAMP('2014-01-17', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(6, 'Nik Ray', '135873630', 'rayray@es.ie', TO_TIMESTAMP('2014-01-28', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(7, 'Cris Paul', '136141236', 'paulcris@es.ie', TO_TIMESTAMP('2016-05-23', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(8, 'Lena Clay', '137145123', 'clena@es.ie', TO_TIMESTAMP('2014-08-19', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(9, 'Kevin Nil', '190145636', 'kevinnil@es.ie', TO_TIMESTAMP('2011-07-20', 'YYYY-MM-DD'), 1);
+INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
+    VALUES(10, 'Hugh Grant', '132145639', 'hughgrant@es.ie', TO_TIMESTAMP('2012-12-31', 'YYYY--MM-DD'), 1);
 
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(1, 'John Nay', '125345790', 'johnnay@mail.ie', 250000, 275000, 4, 2, 1, 1);
@@ -133,6 +149,9 @@ INSERT INTO ForRent(rentID, monthlyRent) VALUES(2, 1100);
 
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
+
+INSERT INTO RentTransaction (rentTransID, companyID) VALUES (1, 1);
+INSERT INTO RentTransaction (rentTransID, companyID) VALUES (2, 1);
 
 
 
