@@ -42,6 +42,14 @@ CREATE TABLE ForRent (
     CONSTRAINT for_rent_pk PRIMARY KEY (rentID)
 );
 
+CREATE TABLE Seller (
+    sellerID NUMBER(5) NOT NULL,
+    sellerName VARCHAR2(50) NOT NULL,
+    sellerPhoneNum VARCHAR2(13) NOT NULL,
+    sellerEmail VARCHAR2(50) NOT NULL,
+    CONSTRAINT seller_pk PRIMARY KEY (sellerID)
+);
+
 CREATE TABLE Property (
     propertyID NUMBER(5) NOT NULL,
     address VARCHAR2(50) NOT NULL,
@@ -76,14 +84,6 @@ CREATE TABLE Buyer (
     --    # companyID
 );
 
-CREATE TABLE Seller (
-    sellerID NUMBER(5) NOT NULL,
-    sellerName VARCHAR2(50) NOT NULL,
-    sellerPhoneNum VARCHAR2(13) NOT NULL,
-    sellerEmail VARCHAR2(50) NOT NULL,
-    CONSTRAINT seller_pk PRIMARY KEY (sellerID)
-);
-
 CREATE TABLE BuyTransaction (
     buyTransID NUMBER(5) NOT NULL,
     companyID NUMBER(5) NOT NULL,
@@ -108,28 +108,28 @@ CREATE TABLE RentTransaction (
 
 INSERT INTO Company VALUES(1, 'E-State Properties');
 
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
-    VALUES(1, '2350 Gibson Road', 'John Smith', 4, 1, 2, 'Bungalow', 'Y', 235000);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, price) 
-    VALUES(2, '197 Watson Street', 'Raymond Chou', 3, 1, 2, 'Apartment', 'Y', 789000);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(3, '2525 Pottsdamer Street', 'Jim Lee', 1, 1, 1, 'Apartment', 100500);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
-    VALUES(4, '193 Love BLVD', 'Kim Abudal', 6, 3, 6, 'House', 'Y', 'Y', 930000);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(5, '647 Maston Road', 'Robert Clue', 2, 1, 1, 'Apartment', 135000);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
-    VALUES(6, '1350 Navada Street', 'Jack Green', 4, 2, 2, 'House', 'Y', 674090);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(7, '256 Florida Street', 'Michael Kohen', 5, 2, 2, 'House', 179280);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasGarden, price)
-    VALUES(8, '1717 Kansas Street', 'Leah Mars',3, 2, 1, 'Semi-Detached', 'Y', 345000);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
-    VALUES(9, '2613 Academic Way', 'Marry Song', 8, 3, 3, 'Mansion', 'Y', 'Y', 997050);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(10, '179 Tinker Road', 'Leon Kant', 1, 1, 1, 'Apartment', 90000);
-INSERT INTO Property (propertyID, address, owner, numBedrooms, numFloors, numToilets, type, price)
-    VALUES(11, '179 Lysergic Road', 'Albert Hoffman', 3, 2, 3, 'House', 125000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+    VALUES(1, '2350 Gibson Road', 1, 4, 1, 2, 'Bungalow', 'Y', 235000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasBalcony, price) 
+    VALUES(2, '197 Watson Street', 2, 3, 1, 2, 'Apartment', 'Y', 789000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(3, '2525 Pottsdamer Street', 3, 1, 1, 1, 'Apartment', 100500);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
+    VALUES(4, '193 Love BLVD', 4, 6, 3, 6, 'House', 'Y', 'Y', 930000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(5, '647 Maston Road', 5, 2, 1, 1, 'Apartment', 135000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+    VALUES(6, '1350 Navada Street', 6, 4, 2, 2, 'House', 'Y', 674090);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(7, '256 Florida Street', 7, 5, 2, 2, 'House', 179280);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasGarden, price)
+    VALUES(8, '1717 Kansas Street', 2 ,3, 2, 1, 'Semi-Detached', 'Y', 345000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, hasBalcony, hasGarden, price)
+    VALUES(9, '2613 Academic Way', 5, 8, 3, 3, 'Mansion', 'Y', 'Y', 997050);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(10, '179 Tinker Road', 5, 1, 1, 1, 'Apartment', 90000);
+INSERT INTO Property (propertyID, address, sellerID, numBedrooms, numFloors, numToilets, type, price)
+    VALUES(11, '179 Lysergic Road', 3, 3, 2, 3, 'House', 125000);
 
 INSERT INTO EstateAgent (agentID, agentName, agentPhoneNum, agentEmail, startDate, companyID) 
     VALUES(1, 'Leet Kim', '135145636', 'leetkim@es.ie', TO_TIMESTAMP('2012-01-23','YYYY-MM-DD'), 1);
@@ -177,6 +177,8 @@ INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(6, 'John Walsh', '123400126', 'John@seller.ie');
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(7, 'ran Walsh', '123400127', 'ran@seller.ie');
+INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
+    VALUES(8, 'Albert Hoffman', '123400128', 'albert@seller.ie');
 
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (1, 1);
 INSERT INTO RentTransaction (rentTransID, companyID) VALUES (2, 1);
