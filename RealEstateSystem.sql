@@ -182,7 +182,8 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
     VALUES(1, 'John Nay', '125345790', 'johnnay@mail.ie', 250000, 275000, 4, 2, 1, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(2, 'Retina Grey', '146345790', 'tinag@mail.ie', 90000, 100000, 1, 1, 1, 1);
-
+INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
+    VALUES (3, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);
 INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES (1, 100000, 6);
 INSERT INTO ForSale(saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
     
@@ -210,21 +211,8 @@ CREATE TABLE BuyTransaction (
     CONSTRAINT sellerID_buyTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID) */
     
 /*INSERT INTO BuyTransaction (buyTransID, companyID. agentID, propertyID, buyerID, sellerID)
-<<<<<<< HEAD
     VALUES(1, 1, 10, 11, 
 */
-
-select * from buyer;
-select * from buytransaction;
-select * from company;
-select * from estateagent;
-select * from forrent;
-select * from forsale;
-select * from property;
-select * from renttransaction;
-select * from seller;
-=======
-    VALUES(1, 1, 10, 11, */
 
 --SELLER
 --sellerID NUMBER(5) NOT NULL,
@@ -242,4 +230,13 @@ select * from seller;
 --    Begin
 --        DBMS_OUTPUT.PUT_LINE('The Salary of '||v_cnt||' Employees are Incremented by 100');
 --    End;
->>>>>>> e47c7656114a59259b2f30f225e528b4f9726c12
+
+select * from buyer;
+select * from buytransaction;
+select * from company;
+select * from estateagent;
+select * from forrent;
+select * from forsale;
+select * from property;
+select * from renttransaction;
+select * from seller;
