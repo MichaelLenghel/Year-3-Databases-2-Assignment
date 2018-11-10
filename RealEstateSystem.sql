@@ -18,6 +18,8 @@ CREATE TABLE Company (
     companyName VARCHAR2(50) NOT NULL,
     CONSTRAINT company_pk PRIMARY KEY(companyID)
 );
+--This is a comment
+-- this is a another test comment
 
 CREATE TABLE EstateAgent (
     agentID NUMBER(5) NOT NULL,
@@ -49,9 +51,9 @@ CREATE TABLE Property (
     numBedrooms NUMBER(2) NOT NULL,
     numFloors NUMBER(2) NOT NULL,
     numToilets NUMBER(2) NOT NULL,
-    # type denotes house, apartment, bungalow, etc.
+    -- type denotes house, apartment, bungalow, etc.
     type VARCHAR2(50) NOT NULL,
-    # Y / N
+    -- Y / N
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
     price NUMBER(6) NULL,
