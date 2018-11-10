@@ -30,7 +30,6 @@ CREATE TABLE EstateAgent (
     CONSTRAINT company_agent_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
 );
 
-
 CREATE TABLE Seller (
     sellerID NUMBER(5) NOT NULL,
     sellerName VARCHAR2(50) NOT NULL,
@@ -110,6 +109,8 @@ CREATE TABLE RentTransaction (
     CONSTRAINT rentTrans_pk PRIMARY KEY(rentTransID),
     CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID)
 );
+
+COMMIT;
 
 INSERT INTO Company VALUES(1, 'E-State Properties');
 
