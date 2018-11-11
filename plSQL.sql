@@ -63,7 +63,10 @@ BEGIN
             VALUES (4, 1, V_FORRENT, V_NO, 1, 5);
         DELETE FROM ForRent WHERE ForRent.propertyID = V_FORRENT;
         COMMIT;
+    ELSE 
+        DBMS_OUTPUT.PUT_LINE(V_RENTABLE || ' properties on market for rent. Transaction cancelled');
     END IF;
+    
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('No such data found');
