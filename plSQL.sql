@@ -45,7 +45,43 @@ DECLARE
             DBMS_OUTPUT.PUT_LINE('Rolling back...');
             ROLLBACK;
     End;
-
+	
+-- EstateAgent PL/SQL
+SET SERVEROUTPUT ON
+DECLARE
+    V_NO EstateAgent.agentID%TYPE:='&Agent_Number';
+    V_NAME EstateAgent.agentName%TYPE;
+    V_RENTABLE INTEGER;
+    -- 1, 5
+    V_PID RentTransaction.propertyID%TYPE:='&Rented_Property_ID';
+    -- autoincrement
+    V_RID ForRent.propertyID%TYPE:='Rent_ID';
+    -- not 7,8,9
+    V_BUYER Buyer.buyerID%TYPE:='&Buyer_ID';
+    -- 1,2,8
+    V_SELLER Seller.sellerID%TYPE:='&Seller_ID';
+BEGIN
+    SELECT agentName INTO V_NAME FROM EstateAgent WHERE agentID = V_NO;
+    SELECT COUNT(ForRent.propertyid) INTO V_RENTABLE FROM ForRent 
+        WHERE propertyID NOT IN (
+            SELECT RentTransaction.propertyID FROM RentTransaction
+        );
+    
+    IF (V_RENTABLE > 0) THEN
+        DBMS_OUTPUT.PUT_LINE(V_RENTABLE || ' properties available for rent');
+        INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) 
+            VALUES (V_RID, 1, V_PID, V_NO, V_BUYER, V_SELLER);
+    ELSE 
+        DBMS_OUTPUT.PUT_LINE('No properties available for rent');
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No such data found');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Rolling back');
+    ROLLBACK;
+END;
+	
 --BUYER PL/SQL
 SET SERVEROUTPUT ON
 DECLARE
@@ -70,3 +106,5 @@ EXCEPTION
     WHEN OTHERS THEN
     dbms_output.put_line('Error');
 END; 
+
+
