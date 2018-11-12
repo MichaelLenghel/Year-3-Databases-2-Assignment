@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DE626562-CEDF-E830-98E8-CFB9BC3C9719" name="Company">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>B28340E5-2BB9-D331-A359-940C50AFC6E7</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="companyID" id="43D426CE-9534-7B14-50A7-7EFC62284156">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>28CF1142-D94C-4DD4-0796-B64406D97A49</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="713FB51F-D6F2-02EA-7A6D-B5EC72504570" name="Company_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>79E89484-DC45-E4AD-02AE-7F0B6C567EF8</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="43D426CE-9534-7B14-50A7-7EFC62284156"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

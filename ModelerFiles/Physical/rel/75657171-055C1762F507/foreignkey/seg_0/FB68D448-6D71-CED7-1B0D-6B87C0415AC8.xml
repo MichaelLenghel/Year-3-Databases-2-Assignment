@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FB68D448-6D71-CED7-1B0D-6B87C0415AC8" containerWithKeyObject="C184E837-1221-23D7-1B65-F72D499B0625" localFKIndex="986DEBF0-20C6-7049-C8B0-54E103BCF6B8" name="Buyer_EstateAgent_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>00CDF716-01E2-6047-0CBD-D0FD08F1A4D7</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<referredTableLongName>EstateAgent</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>62380478-E76E-F6FF-FA01-6725B5A0EF52</referredTableID>
+<keyObject>398A18DF-81AA-DE62-6992-54261E3F0DB0</keyObject>
+<referredKeyID>398A18DF-81AA-DE62-6992-54261E3F0DB0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>EstateAgent_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

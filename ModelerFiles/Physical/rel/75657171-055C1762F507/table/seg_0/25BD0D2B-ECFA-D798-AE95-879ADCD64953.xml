@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="25BD0D2B-ECFA-D798-AE95-879ADCD64953" name="Rent">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>2761905D-A2B0-3885-31CB-A1115B4B1189</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rentID" id="2B2813A7-1C2E-5431-5169-24E5D412176E">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>00994674-C6EF-10B2-3227-F11319E4E53E</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rent_ID" id="1A75BD20-C942-695E-3ABC-3DC989E5962B">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="444C0144-1606-7B66-4972-3E08D51FAA4E" name="Rent_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="1A75BD20-C942-695E-3ABC-3DC989E5962B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3F14DCE1-3E97-33A6-2FE3-29E606305CE1" name="Rent_rentID_UN">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>B4A6E0E5-C7ED-AEE2-9E0E-4E4EE008E82D</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2B2813A7-1C2E-5431-5169-24E5D412176E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

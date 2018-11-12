@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="66AF0CE3-6C40-7B63-228C-F563A54B7852" name="Sale">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>C543819E-BFD8-1E19-69D0-3CBA9950695F</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="saleID" id="3B7DA5C5-730F-C2C5-F851-C75D4D4F7549">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>F58209A2-D43B-8855-BA14-1594B05C512E</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Sale_ID" id="BF3B14DC-0672-62F9-EC54-941BAD1EA78F">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8CBA5DCA-AE9C-F1CC-77DD-AD3A970FA7B5" name="Sale_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="BF3B14DC-0672-62F9-EC54-941BAD1EA78F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D04CDBC-0ED8-68D4-7476-B3A04914A438" name="Sale_saleID_UN">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>C9EA645B-9C82-30DA-CD5D-31FD9DA0D773</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B7DA5C5-730F-C2C5-F851-C75D4D4F7549"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

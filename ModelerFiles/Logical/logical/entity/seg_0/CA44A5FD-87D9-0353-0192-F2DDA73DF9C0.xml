@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CA44A5FD-87D9-0353-0192-F2DDA73DF9C0" name="Property">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:16:36 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="propertyID" id="9762ABB2-6D13-B7E9-C155-17975887E527">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:16:42 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sellerID" id="D1A02E1D-73CF-F872-0BD7-494F052E7456">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:48:52 UTC</createdTime>
+<generatorID>F01F2669-C0E8-C709-DDAC-351D52A0D16B</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<referedAttribute>31C1E1F9-DF63-89A2-6325-407FE0979D97</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="24742016-CCA0-0E44-DC9D-A31331223B6A" name="PK_propertyID">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:17:00 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>9762ABB2-6D13-B7E9-C155-17975887E527,F01F2669-C0E8-C709-DDAC-351D52A0D16B</newElementsIDs>
+<usedAttributes>
+<attributeRef>9762ABB2-6D13-B7E9-C155-17975887E527</attributeRef>
+<attributeRef>D1A02E1D-73CF-F872-0BD7-494F052E7456</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

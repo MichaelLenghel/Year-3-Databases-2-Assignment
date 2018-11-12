@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Company_RentTransaction" directorySegmentName="seg_0" id="C95C53A4-A254-7E43-8D26-A0BCEC3621CD">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:42:47 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<sourcePk>79E89484-DC45-E4AD-02AE-7F0B6C567EF8</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B28340E5-2BB9-D331-A359-940C50AFC6E7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>963CE641-1CB2-2E9F-D22E-8F072D5E9966</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

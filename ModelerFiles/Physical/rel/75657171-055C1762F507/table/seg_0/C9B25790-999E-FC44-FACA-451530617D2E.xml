@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C9B25790-999E-FC44-FACA-451530617D2E" name="Property">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>CA44A5FD-87D9-0353-0192-F2DDA73DF9C0</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="propertyID" id="948E51DB-6640-8FA6-A6D3-89D1BA6B4BD7">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>9762ABB2-6D13-B7E9-C155-17975887E527</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Seller_sellerID" id="11507F81-3ACE-CD79-FA5F-92E25C8F88F7">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>D1A02E1D-73CF-F872-0BD7-494F052E7456</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A471AE4E-3DFD-41FB-9044-954643710737" referredColumn="A7436684-539B-5DA8-D13F-791447199785"/>
+</associations>
+</Column>
+<Column name="Rent_Rent_ID" id="CF5D70CA-2A6D-736B-C199-5B2A72246D4A">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="69E15FEE-9889-6705-E14F-54D77AA102B7" referredColumn="1A75BD20-C942-695E-3ABC-3DC989E5962B"/>
+</associations>
+</Column>
+<Column name="Sale_Sale_ID" id="52B259DA-6289-DAC6-2FBA-3DDEAFF3FC61">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3AC99D34-D5E6-7CD8-516F-DD79383F24B8" referredColumn="BF3B14DC-0672-62F9-EC54-941BAD1EA78F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1861EF93-DEA4-91EC-B367-BFEA90D320D9" name="Property_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>24742016-CCA0-0E44-DC9D-A31331223B6A</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52B259DA-6289-DAC6-2FBA-3DDEAFF3FC61"/>
+<colUsage columnID="CF5D70CA-2A6D-736B-C199-5B2A72246D4A"/>
+<colUsage columnID="948E51DB-6640-8FA6-A6D3-89D1BA6B4BD7"/>
+<colUsage columnID="11507F81-3ACE-CD79-FA5F-92E25C8F88F7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="42C10B90-E6E9-8FF1-1616-0D5ECF5112A2" name="Property__IDX">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4B0A3E28-D835-0392-297F-5410E312B0A0</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="CF5D70CA-2A6D-736B-C199-5B2A72246D4A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="73D284B6-8EAC-9AEA-3A7F-E7EB49535F27" name="Property__IDXv1">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>478ED584-007B-2F88-14D2-5C5471194BB5</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="52B259DA-6289-DAC6-2FBA-3DDEAFF3FC61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D11DB8F-6EE2-E7D1-2911-B50A80A163CB" name="Property_Rent_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>4B0A3E28-D835-0392-297F-5410E312B0A0</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF5D70CA-2A6D-736B-C199-5B2A72246D4A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="217EF342-3D03-82CC-ADE4-59B8F87F6DAD" name="Property_Sale_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>478ED584-007B-2F88-14D2-5C5471194BB5</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52B259DA-6289-DAC6-2FBA-3DDEAFF3FC61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="95542B58-DC48-CA77-D12A-00E577FEECD2" name="Property_Seller_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>F01F2669-C0E8-C709-DDAC-351D52A0D16B</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="11507F81-3ACE-CD79-FA5F-92E25C8F88F7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

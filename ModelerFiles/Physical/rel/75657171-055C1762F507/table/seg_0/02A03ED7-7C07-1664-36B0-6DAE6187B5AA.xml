@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="02A03ED7-7C07-1664-36B0-6DAE6187B5AA" name="EstateAgent_Rent">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EstateAgent_EstateAgent_ID" id="CE879768-FC29-5A60-8033-641EF58D6A0A">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59EE9983-35C5-0F19-48FF-8535895D265B" referredColumn="4A18F8BA-0427-2582-9DFE-7A9ABFFE0292"/>
+</associations>
+</Column>
+<Column name="Rent_rentID" id="A85E3DAA-6032-B9AC-9C85-5168541F9DEC">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="737B7DE8-9D69-C719-28D9-14E87593A916" referredColumn="2B2813A7-1C2E-5431-5169-24E5D412176E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D3A1C1B7-5D71-9364-E66B-8CB4463767EA" name="EstateAgent_Rent_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE879768-FC29-5A60-8033-641EF58D6A0A"/>
+<colUsage columnID="A85E3DAA-6032-B9AC-9C85-5168541F9DEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4A94620A-1C70-357C-6243-D66C630B4013" name="EstateAgent_Rent_EstateAgent_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>11EB13B5-F7A0-1F62-E7E9-3134A85D0B6A</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE879768-FC29-5A60-8033-641EF58D6A0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C11495A-BAB0-DC4B-576B-B7E7F8ECF8C0" name="EstateAgent_Rent_Rent_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>11EB13B5-F7A0-1F62-E7E9-3134A85D0B6A</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A85E3DAA-6032-B9AC-9C85-5168541F9DEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

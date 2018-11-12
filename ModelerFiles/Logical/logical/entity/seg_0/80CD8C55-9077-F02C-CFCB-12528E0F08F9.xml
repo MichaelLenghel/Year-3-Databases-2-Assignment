@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="80CD8C55-9077-F02C-CFCB-12528E0F08F9" name="Seller">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:19:20 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="sellerID" id="31C1E1F9-DF63-89A2-6325-407FE0979D97">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:19:27 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D12A4F07-74AC-744C-8EFE-63112BD4A77C" name="PK_sellerID">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:19:38 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>31C1E1F9-DF63-89A2-6325-407FE0979D97</newElementsIDs>
+<usedAttributes>
+<attributeRef>31C1E1F9-DF63-89A2-6325-407FE0979D97</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

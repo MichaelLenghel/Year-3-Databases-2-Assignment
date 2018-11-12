@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E824DE04-B538-7F3B-ACE0-5FDB91411FE6" name="BuyTransaction">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:05:42 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="buyTransactionID" id="3B2DE558-2724-B702-C713-369C5D0DFF0D">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:06:30 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="companyID" id="44F32D9B-9B61-D86A-98F9-8DA58A426571">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:47:33 UTC</createdTime>
+<generatorID>496C11DF-2261-6874-9E92-DD0861AB39E1</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<referedAttribute>28CF1142-D94C-4DD4-0796-B64406D97A49</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B6998CCD-787C-6F05-C218-DD60C9DE2714" name="PK_buyTransactionID">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:06:50 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>3B2DE558-2724-B702-C713-369C5D0DFF0D,496C11DF-2261-6874-9E92-DD0861AB39E1</newElementsIDs>
+<usedAttributes>
+<attributeRef>3B2DE558-2724-B702-C713-369C5D0DFF0D</attributeRef>
+<attributeRef>44F32D9B-9B61-D86A-98F9-8DA58A426571</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

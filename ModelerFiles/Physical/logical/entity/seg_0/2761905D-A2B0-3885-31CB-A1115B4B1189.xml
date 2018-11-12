@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2761905D-A2B0-3885-31CB-A1115B4B1189" name="Rent">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:12:51 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="rentID" id="00994674-C6EF-10B2-3227-F11319E4E53E">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:13:07 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B4A6E0E5-C7ED-AEE2-9E0E-4E4EE008E82D" name="PK_rentID">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:13:21 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>00994674-C6EF-10B2-3227-F11319E4E53E</newElementsIDs>
+<usedAttributes>
+<attributeRef>00994674-C6EF-10B2-3227-F11319E4E53E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

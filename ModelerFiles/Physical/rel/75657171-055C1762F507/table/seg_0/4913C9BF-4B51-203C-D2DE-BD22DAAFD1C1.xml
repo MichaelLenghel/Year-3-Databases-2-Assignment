@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4913C9BF-4B51-203C-D2DE-BD22DAAFD1C1" name="RentTransaction">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>963CE641-1CB2-2E9F-D22E-8F072D5E9966</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rentTransactionID" id="55413466-A04A-77E6-A2A1-0060A8F49061">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>44E546B2-72CE-B1D7-D610-1EDD71C00EB6</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Company_companyID" id="B80A1D67-7E42-D866-C04C-D3056E13A532">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>7FE8B46F-6C43-8444-147E-56A6DD2A88FC</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="75E12E2D-071D-D423-DC4A-407D14A79B57" referredColumn="43D426CE-9534-7B14-50A7-7EFC62284156"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A6BD9AE4-980C-CE71-7B8C-9116F2CB397C" name="RentTransaction_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>7E24A775-4B11-48D8-B25F-3348F0CFC67C</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55413466-A04A-77E6-A2A1-0060A8F49061"/>
+<colUsage columnID="B80A1D67-7E42-D866-C04C-D3056E13A532"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70024231-8074-5559-83A7-804D9305D18F" name="RentTransaction_Company_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>C95C53A4-A254-7E43-8D26-A0BCEC3621CD</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B80A1D67-7E42-D866-C04C-D3056E13A532"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

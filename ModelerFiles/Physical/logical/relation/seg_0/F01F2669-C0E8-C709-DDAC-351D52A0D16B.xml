@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Seller_Property" directorySegmentName="seg_0" id="F01F2669-C0E8-C709-DDAC-351D52A0D16B">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:48:52 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<sourcePk>D12A4F07-74AC-744C-8EFE-63112BD4A77C</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>80CD8C55-9077-F02C-CFCB-12528E0F08F9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CA44A5FD-87D9-0353-0192-F2DDA73DF9C0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

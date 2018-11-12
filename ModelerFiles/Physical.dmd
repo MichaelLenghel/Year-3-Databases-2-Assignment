@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Physical" id="B237064A-9597-4B47-C6E9-80AE9C486BBB" version="3.5">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 22:58:41 UTC</createdTime>
+<ownerDesignName>RealEstateSystem</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B237064A-9597-4B47-C6E9-80AE9C486BBB</designId>
+</OSDM_Design>

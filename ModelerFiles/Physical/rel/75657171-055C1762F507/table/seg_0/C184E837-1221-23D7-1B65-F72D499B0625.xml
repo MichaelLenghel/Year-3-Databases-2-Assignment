@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C184E837-1221-23D7-1B65-F72D499B0625" name="Buyer">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>E53294A7-42CA-4512-DFEE-A3FB84ACECA9</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="buyerID" id="9448701F-EB45-4C0E-324F-92AE86E3A307">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>9DB8DF41-DB18-B4E2-81FF-3D8BD824B276</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estateAgentID" id="0395E60E-3DC6-90A7-AB19-FE166647D53F">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>C2187A1F-24BE-F8B4-659C-947B7CB48A4C</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="companyID" id="121281E3-3C54-516C-8529-CA3EC1E3322A">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>CDD5D5F6-D6D2-A708-450A-2C01BD15BAAF</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EstateAgent_EstateAgent_ID" id="D62B4B35-9F8E-AD09-79E2-C483A40CAB82">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FB68D448-6D71-CED7-1B0D-6B87C0415AC8" referredColumn="4A18F8BA-0427-2582-9DFE-7A9ABFFE0292"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D5512636-4FD0-522B-0DC8-416C85AEB05E" name="Buyer_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>59AD6349-7915-2217-3596-E7B39F690490</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9448701F-EB45-4C0E-324F-92AE86E3A307"/>
+<colUsage columnID="0395E60E-3DC6-90A7-AB19-FE166647D53F"/>
+<colUsage columnID="121281E3-3C54-516C-8529-CA3EC1E3322A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="986DEBF0-20C6-7049-C8B0-54E103BCF6B8" name="Buyer_EstateAgent_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>00CDF716-01E2-6047-0CBD-D0FD08F1A4D7</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D62B4B35-9F8E-AD09-79E2-C483A40CAB82"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

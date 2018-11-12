@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6675A75C-4484-B78F-FDC1-6096BAE40052" name="EstateAgent">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:09:11 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="estateAgentID" id="D74772FA-7CB5-6091-51C4-1E547EE8A4F1">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:09:41 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="companyID" id="EA0F32C4-AECA-AEF0-0478-36C35BC9880F">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:41:41 UTC</createdTime>
+<generatorID>61A6DEB9-879A-E2B3-AD22-59B59C195217</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<referedAttribute>28CF1142-D94C-4DD4-0796-B64406D97A49</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="45842E79-6EB0-5F49-1C97-598B66230FBF" name="PK_estateAgentID">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:10:06 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>D74772FA-7CB5-6091-51C4-1E547EE8A4F1,61A6DEB9-879A-E2B3-AD22-59B59C195217</newElementsIDs>
+<usedAttributes>
+<attributeRef>D74772FA-7CB5-6091-51C4-1E547EE8A4F1</attributeRef>
+<attributeRef>EA0F32C4-AECA-AEF0-0478-36C35BC9880F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

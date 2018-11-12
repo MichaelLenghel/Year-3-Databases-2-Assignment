@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E53294A7-42CA-4512-DFEE-A3FB84ACECA9" name="Buyer">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:17:58 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="buyerID" id="9DB8DF41-DB18-B4E2-81FF-3D8BD824B276">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:18:03 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estateAgentID" id="C2187A1F-24BE-F8B4-659C-947B7CB48A4C">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:42:21 UTC</createdTime>
+<generatorID>00CDF716-01E2-6047-0CBD-D0FD08F1A4D7</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<referedAttribute>D74772FA-7CB5-6091-51C4-1E547EE8A4F1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="companyID" id="CDD5D5F6-D6D2-A708-450A-2C01BD15BAAF">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:42:21 UTC</createdTime>
+<generatorID>00CDF716-01E2-6047-0CBD-D0FD08F1A4D7</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<referedAttribute>EA0F32C4-AECA-AEF0-0478-36C35BC9880F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="59AD6349-7915-2217-3596-E7B39F690490" name="PK_propertyID">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:18:17 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>9DB8DF41-DB18-B4E2-81FF-3D8BD824B276,00CDF716-01E2-6047-0CBD-D0FD08F1A4D7</newElementsIDs>
+<usedAttributes>
+<attributeRef>9DB8DF41-DB18-B4E2-81FF-3D8BD824B276</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

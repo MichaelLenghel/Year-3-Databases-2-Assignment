@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="EstateAgent_Sale" directorySegmentName="seg_0" id="F9600BBB-7F10-4A9E-ADDD-5D1C331E60B3">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-09 23:50:09 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="75657171-9980-A985-A3AC-055C1762F507" value="true"/>
+</engineerTo>
+<useSurrogateKey>true</useSurrogateKey>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>6675A75C-4484-B78F-FDC1-6096BAE40052</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C543819E-BFD8-1E19-69D0-3CBA9950695F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

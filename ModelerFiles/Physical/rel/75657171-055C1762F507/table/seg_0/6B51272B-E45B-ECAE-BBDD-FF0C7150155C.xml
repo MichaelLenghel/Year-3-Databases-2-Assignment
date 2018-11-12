@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6B51272B-E45B-ECAE-BBDD-FF0C7150155C" name="BuyTransaction">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>E824DE04-B538-7F3B-ACE0-5FDB91411FE6</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="buyTransactionID" id="6E784F23-DF33-13A2-2CE4-6F51BA3C4A80">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>3B2DE558-2724-B702-C713-369C5D0DFF0D</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Company_companyID" id="A6F76C7F-2905-27E8-B422-054E01DE04BD">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>44F32D9B-9B61-D86A-98F9-8DA58A426571</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="832A86A5-232C-08C1-9F5E-0E2BCF131685" referredColumn="43D426CE-9534-7B14-50A7-7EFC62284156"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FE7EBBAC-671D-EF97-02BD-96462E1315FB" name="BuyTransaction_PK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>B6998CCD-787C-6F05-C218-DD60C9DE2714</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E784F23-DF33-13A2-2CE4-6F51BA3C4A80"/>
+<colUsage columnID="A6F76C7F-2905-27E8-B422-054E01DE04BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="660D3AD8-A3C9-A183-3D1E-6196DEA35BD5" name="BuyTransaction_Company_FK">
+<createdBy>Eamonn Keogh</createdBy>
+<createdTime>2018-11-10 00:06:43 UTC</createdTime>
+<generatorID>496C11DF-2261-6874-9E92-DD0861AB39E1</generatorID>
+<ownerDesignName>Physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A6F76C7F-2905-27E8-B422-054E01DE04BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
