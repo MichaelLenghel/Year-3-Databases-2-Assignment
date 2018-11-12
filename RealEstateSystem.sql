@@ -95,6 +95,7 @@ CREATE TABLE BuyTransaction (
     propertyID NUMBER(5) NOT NULL,
     buyerID NUMBER(5) NOT NULL,
     sellerID NUMBER(5) NOT NULL,
+    price NUMBER(10) NOT NULL,
     CONSTRAINT buyTrans_pk PRIMARY KEY(buyTransID),
     CONSTRAINT company_buyTrans_fk FOREIGN KEY (companyID) REFERENCES Company(companyID),
     CONSTRAINT agentID_buyTrans_fk FOREIGN KEY (agentID) REFERENCES EstateAgent (agentID),
@@ -226,12 +227,12 @@ INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerI
 INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (2, 1, 15, 5, 8, 1);
 INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (3, 1, 16, 7, 9, 2);
 
-INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    VALUES(1, 1, 10, 11, 3, 8);
-INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    VALUES(2, 1, 5, 12, 4, 9);
-INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID)
-    VALUES(3, 1, 7, 13, 5, 10);
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
+    VALUES(1, 1, 10, 11, 3, 8, 125000);
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
+    VALUES(2, 1, 5, 12, 4, 9, 75000);
+INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
+    VALUES(3, 1, 7, 13, 5, 10, 85000);
 
 select * from buyer;
 select * from buytransaction;
