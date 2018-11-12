@@ -111,6 +111,7 @@ CREATE TABLE RentTransaction (
     agentID NUMBER(5) NOT NULL,
     buyerID NUMBER(5) NOT NULL,
     sellerID NUMBER(5) NOT NULL,
+    price NUMBER(10) NOT NULL,
     CONSTRAINT rentTrans_pk PRIMARY KEY(rentTransID),
     CONSTRAINT company_rentTrans_fk FOREIGN KEY (companyID) REFERENCES Company (companyID),
     CONSTRAINT propertyID_rentTrans_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID),
@@ -223,9 +224,9 @@ INSERT INTO ForSale(saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
 INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(1, 660, 1);
 INSERT INTO ForRent(rentID, monthlyRent, propertyID) VALUES(2, 1100, 5);
 
-INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (1, 1, 14, 10, 7, 8);
-INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (2, 1, 15, 5, 8, 1);
-INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID) VALUES (3, 1, 16, 7, 9, 2);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) VALUES (1, 1, 14, 10, 7, 8,95000);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) VALUES (2, 1, 15, 5, 8, 1,60000);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) VALUES (3, 1, 16, 7, 9, 2,70000);
 
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(1, 1, 10, 11, 3, 8, 125000);
