@@ -14,6 +14,7 @@ From Buyer
 Group By agentID
 Having  AVG(maxPreferredPrice - minPreferredPrice) > 10000;
 --Union
+Select 
  
 --Minus, 
 --Difference, 
