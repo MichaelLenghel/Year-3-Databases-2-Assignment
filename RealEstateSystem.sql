@@ -52,14 +52,14 @@ CREATE TABLE Property (
     -- Y / N
     hasBalcony CHAR(1) DEFAULT 'N',
     hasGarden CHAR(1) DEFAULT 'N',
-    price NUMBER(9) NULL,
+    price NUMBER(10) NULL,
     CONSTRAINT property_pk PRIMARY KEY (propertyID),
     CONSTRAINT seller_ID_property_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
 
 CREATE TABLE ForRent (
     rentID NUMBER(5) NOT NULL,
-    monthlyRent NUMBER(8) NOT NULL,
+    monthlyRent NUMBER(10) NOT NULL,
     propertyID NUMBER(5) NULL,
     CONSTRAINT for_rent_pk PRIMARY KEY (rentID),
     CONSTRAINT property_forSale_fk FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
@@ -67,7 +67,7 @@ CREATE TABLE ForRent (
 
 CREATE TABLE ForSale (
     saleID NUMBER(5) NOT NULL,
-    askingPrice NUMBER(9) NOT NULL,
+    askingPrice NUMBER(10) NOT NULL,
     propertyID NUMBER(5) NULL,
     CONSTRAINT for_sale_pk PRIMARY KEY (saleID),
     CONSTRAINT property_forSale FOREIGN KEY (propertyID) REFERENCES Property (propertyID) 
@@ -225,9 +225,12 @@ INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
 INSERT INTO ForRent (rentID, monthlyRent, propertyID) VALUES(1, 660, 1);
 INSERT INTO ForRent (rentID, monthlyRent, propertyID) VALUES(2, 1100, 5);
 
-INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) VALUES (1, 1, 14, 10, 7, 8,95000);
-INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) VALUES (2, 1, 15, 5, 8, 1,60000);
-INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) VALUES (3, 1, 16, 7, 9, 2,70000);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) 
+    VALUES (1, 1, 14, 10, 7, 8, 95000);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) 
+    VALUES (2, 1, 15, 5, 8, 1, 60000);
+INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price) 
+    VALUES (3, 1, 16, 7, 9, 2, 70000);
 
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(1, 1, 10, 11, 3, 8, 125000);
@@ -235,49 +238,43 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
     VALUES(2, 1, 5, 12, 4, 9, 75000);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(3, 1, 7, 13, 5, 10, 85000);
-
-select * from buyer;
-select * from buytransaction;
-select * from company;
-select * from estateagent;
-select * from forrent;
-select * from forsale;
-select * from property;
-select * from renttransaction;
-select * from seller;
-
-select rentid, monthlyrent, propertyid, count(*) over() count_all
-from forrent;
-
-select * from renttransaction;
-select * from forrent;
-
-
--- EstateAgent PL/SQL
-SET SERVEROUTPUT ON
-DECLARE
-    V_NO EstateAgent.agentID%TYPE:='&Agent_Number';
-    V_NAME EstateAgent.agentName%TYPE;
-    V_RENTABLE INTEGER;
-    V_FORRENT ForRent.propertyID%TYPE:='&Rentable_Property';
-BEGIN
-    SELECT agentName INTO V_NAME FROM EstateAgent WHERE agentID = V_NO;
-    SELECT ForRent.propertyID, COUNT(*) OVER() Count_All INTO V_FORRENT, V_RENTABLE FROM ForRent WHERE propertyid = V_FORRENT;
-
-    IF (V_RENTABLE > 0) THEN
-        DBMS_OUTPUT.PUT_LINE(V_RENTABLE || ' available properties for rent');
-        INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID)
-            VALUES (4, 1, V_FORRENT, V_NO, 1, 5);
-        DELETE FROM ForRent WHERE ForRent.propertyID = V_FORRENT;
-        COMMIT;
-    ELSE 
-        DBMS_OUTPUT.PUT_LINE(V_RENTABLE || ' properties on market for rent. Transaction cancelled');
-    END IF;
     
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        DBMS_OUTPUT.PUT_LINE('No such data found');
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Rolling back');
-    ROLLBACK;
-END;
+--Selection,
+SELECT * FROM EstateAgent;
+
+--Projection, find all employees with es.ie email 
+SELECT agentName, agentEmail, startDate FROM EstateAgent
+WHERE agentEmail LIKE '%es.ie';
+
+--Aggregation with filters on aggregates, count how many of each type of property are for sale with AVG price
+SELECT 
+    COUNT(propertyID) AS Available, 
+    propertyType AS Property,
+    CAST(AVG(price) AS DECIMAL(10,2)) AS Average_Price
+FROM Property
+GROUP BY propertyType
+ORDER BY Available DESC;
+
+SELECT sellerID, SUM(price) AS "Total" FROM Property
+GROUP BY sellerID
+HAVING SUM(price) > 1000000;
+
+--Union, get all the clients that the company has dealt with buyers and sellers
+SELECT DISTINCT buyerName FROM Buyer
+UNION
+SELECT DISTINCT sellerName FROM Seller;
+--Minus, find properties that havent been sold or rented
+
+--Difference, 
+--Inner Join, 
+--Outer Join, 
+--Semi-join, 
+--Anti-join 
+--Correlated sub-query that finds what transactions, X AgentName is reponsible for
+SELECT BuyTransaction.agentID, BuyTransaction.sellerID, BuyTransaction.propertyID FROM BuyTransaction
+WHERE BuyTransaction.agentID = (
+    SELECT EstateAgent.agentID FROM EstateAgent 
+    WHERE EstateAgent.agentName = 'Livia Watson'
+);
+
+
