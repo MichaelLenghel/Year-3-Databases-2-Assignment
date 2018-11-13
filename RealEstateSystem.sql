@@ -239,42 +239,4 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(3, 1, 7, 13, 5, 10, 85000);
     
---Selection,
-SELECT * FROM EstateAgent;
-
---Projection, find all employees with es.ie email 
-SELECT agentName, agentEmail, startDate FROM EstateAgent
-WHERE agentEmail LIKE '%es.ie';
-
---Aggregation with filters on aggregates, count how many of each type of property are for sale with AVG price
-SELECT 
-    COUNT(propertyID) AS Available, 
-    propertyType AS Property,
-    CAST(AVG(price) AS DECIMAL(10,2)) AS Average_Price
-FROM Property
-GROUP BY propertyType
-ORDER BY Available DESC;
-
-SELECT sellerID, SUM(price) AS "Total" FROM Property
-GROUP BY sellerID
-HAVING SUM(price) > 1000000;
-
---Union, get all the clients that the company has dealt with buyers and sellers
-SELECT DISTINCT buyerName FROM Buyer
-UNION
-SELECT DISTINCT sellerName FROM Seller;
---Minus, find properties that havent been sold or rented
-
---Difference, 
---Inner Join, 
---Outer Join, 
---Semi-join, 
---Anti-join 
---Correlated sub-query that finds what transactions, X AgentName is reponsible for
-SELECT BuyTransaction.agentID, BuyTransaction.sellerID, BuyTransaction.propertyID FROM BuyTransaction
-WHERE BuyTransaction.agentID = (
-    SELECT EstateAgent.agentID FROM EstateAgent 
-    WHERE EstateAgent.agentName = 'Livia Watson'
-);
-
 
