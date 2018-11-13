@@ -30,12 +30,13 @@ Select propertyID From ForRent
 Minus
 Select propertyID From ForSale;
 
---Difference,--
+--Difference--
 
 --Inner Join--
 --Show all properties that for rent and their price
 Select propertyID, price From Property
 Inner Join ForRent using(propertyID);
+
 
 --Outer Join--
 Select * From ForRent
