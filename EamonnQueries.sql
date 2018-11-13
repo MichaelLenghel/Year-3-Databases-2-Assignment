@@ -14,10 +14,6 @@ FROM Property
 GROUP BY propertyType
 ORDER BY Available DESC;
 
-SELECT sellerID, SUM(price) AS "Total" FROM Property
-GROUP BY sellerID
-HAVING SUM(price) > 1000000;
-
 --Union, get all the clients that the company has dealt with buyers and sellers
 SELECT DISTINCT buyerName FROM Buyer
 UNION
