@@ -236,5 +236,4 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
     VALUES(2, 1, 5, 12, 4, 9, 75000);
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(3, 1, 7, 13, 5, 10, 85000);
-    
 COMMIT;
