@@ -1,6 +1,4 @@
---Each query should be tested to ensure that there is data there to satisfy it and to show that it works – i.e. a query that shows the 
---power of the technique being used (e.g. a left join that would return the same as an inner join will not get full marks). 
---You may create  views as required but show your code if you do.
+--Student Number: C16434974
 
 --Selection--
 Select * from Seller;
@@ -31,7 +29,7 @@ Minus
 Select propertyID From ForSale;
 
 --Difference--
-
+SELECT DIFFERENCE('Juice', 'Jucy');
 --Inner Join--
 --Show all properties that for rent and their price
 Select propertyID, price From Property
@@ -58,6 +56,7 @@ Where agentID NOT IN (
     Select agentID From BuyTransaction
 )
 ORDER BY agentID ASC;
+
 --Correlated sub-query--
 --Find all the properties that a particular seller has put on the market
 Select * From Property

@@ -4,8 +4,8 @@
 
 --Seller PL/SQL
 
--- Here I find all buyers that are available and within the sellers price range that they have listed their house for.
--- I then insert into the property and seller tables the properties.
+-- Here I find all the buyers that are within the sellers price range.
+-- I then insert into the property and seller tables.
 
 
 SET SERVEROUTPUT ON
@@ -25,6 +25,7 @@ DECLARE
     v_hasBalcony property.hasbalcony%TYPE := '&hasBalcony';
     v_buyers Buyer.buyerName%TYPE;
     BEGIN
+        --Insure the price is valid
         IF (v_price > 0) THEN
             DBMS_OUTPUT.PUT_LINE('Potential Buyers within price range: ');
         
