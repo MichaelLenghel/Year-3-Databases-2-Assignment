@@ -22,8 +22,10 @@ MINUS
 SELECT agentID, agentName, agentPhoneNum FROM EstateAgent
 JOIN Buyer USING (agentID);
 
--- Difference
---SELECT DIFFERENCE('Michael Lenghel', 'Eamonn Keogh') FROM Buyer;
+-- Difference to select all agents that have not rented out a property.
+SELECT agentID, agentName, agentPhoneNum FROM EstateAgent
+WHERE agentID NOT IN 
+    (SELECT agentID FROM RentTransaction);
 
 -- Inner Join, this shows the buyers and who is estate agent consulting them
 SELECT buyerName, agentName FROM Buyer
