@@ -58,19 +58,10 @@ Where exists (
 Order By askingPrice ASC;
 
 --Anti-join--
-<<<<<<< HEAD
---Select all agents that have not made a sale
-Select * From EstateAgent
-Where agentID NOT IN (
-    Select agentID From BuyTransaction
-)
-ORDER BY agentID ASC;
-=======
 --Find all houses not put up for rent
 Select propertyID, address, price From Property
 Left Join forSale using(propertyID)
 Where propertyType = 'House';
->>>>>>> 9933c933f46152d115f2139c6b4971d78fbbc86c
 
 --Correlated sub-query--
 --Find all the properties that a particular seller has put on the market
