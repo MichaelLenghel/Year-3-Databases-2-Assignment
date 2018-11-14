@@ -27,8 +27,14 @@ INTERSECT
 SELECT propertyID FROM Property
 MINUS
 SELECT propertyID FROM BuyTransaction;
---Difference, 
 
+--Difference, 
+SELECT address, price, propertyType FROM Property
+WHERE propertyType NOT IN (
+    SELECT propertyType FROM Property 
+    WHERE propertyType LIKE '%House%'
+)
+ORDER BY price ASC;
 
 --Inner Join, 
 SELECT 
@@ -65,9 +71,9 @@ SELECT * FROM Property
 WHERE propertyID NOT IN (
         SELECT propertyID FROM RentTransaction
         WHERE Property.hasBalcony = 'N' AND Property.hasGarden = 'N'
---        UNION ALL
---        SELECT propertyID from BuyTransaction
---        WHERE Property.hasBalcony = 'N' OR Property.hasGarden = 'N'
+        UNION ALL
+        SELECT propertyID from BuyTransaction
+        WHERE Property.hasBalcony = 'N' OR Property.hasGarden = 'N'
     )
 ORDER BY price ASC;
 
