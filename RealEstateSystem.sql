@@ -121,9 +121,9 @@ CREATE TABLE RentTransaction (
     CONSTRAINT sellerID_rentTrans_fk FOREIGN KEY (sellerID) REFERENCES Seller (sellerID)
 );
 
-COMMIT;
-
 INSERT INTO Company VALUES(1, 'E-State Properties');
+INSERT INTO Company VALUES(2, 'Hello bichael');
+
 
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
@@ -211,13 +211,13 @@ INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPr
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
     VALUES(5, 'Christopher B. Garner', '146345793', 'chris@mail.ie', 80000, 90000, 2, 2, 7, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 10, 1);    
+    VALUES (6, 'Eamonn Keogh', '4146345791', 'eamonn@buyer.ie', 100000, 500000, 1, 1, 6, 1);    
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (7, 'Adam Smith', '4146345291', 'adam@buyer.ie', 400000, 900000, 2, 3, 10, 1);
+    VALUES (7, 'Adam Smith', '4146345291', 'adam@buyer.ie', 400000, 900000, 2, 3, 3, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (8, 'Paul Kubulius', '4146345391', 'paul@buyer.ie', 200000, 400000, 1, 1, 10, 1);
+    VALUES (8, 'Paul Kubulius', '4146345391', 'paul@buyer.ie', 200000, 400000, 1, 1, 8, 1);
 INSERT INTO Buyer (buyerID, buyerName, buyerPhoneNum, buyerEmail, minPreferredPrice, maxPreferredPrice, bedrooms, bathrooms, agentID, companyID) 
-    VALUES (9, 'Michael Lenghel', '4946345791', 'michael@buyer.ie', 500000, 950000, 3, 4, 10, 1);
+    VALUES (9, 'Michael Lenghel', '4946345791', 'michael@buyer.ie', 500000, 950000, 3, 4, 7, 1);
     
 INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES (1, 100000, 6);
 INSERT INTO ForSale (saleID, askingPrice, propertyID) VALUES(2, 550000, 3);
@@ -239,4 +239,21 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(3, 1, 7, 13, 5, 10, 85000);
     
+GRANT SELECT ON Company TO MLENGHEL;
+REVOKE SELECT ON Company FROM MLENGHEL;
+GRANT
+    SELECT,
+    INSERT,
+    UPDATE,
+    DELETE
+ON
+    SCHEMA.dt2283group_h
+TO
+    MLENGHEL,
+    PKUBILIUS;
+COMMIT;
 
+
+INSERT INTO Company VALUES (4, 'UwU');
+
+SELECT * FROM MLENGHEL.Company;
