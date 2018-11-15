@@ -2,10 +2,11 @@
 SET SERVEROUTPUT ON
 DECLARE
     V_TID RentTransaction.rentTransID%TYPE:='&Transaction_Number'; -- 4
-    V_NO EstateAgent.agentID%TYPE:='&Agent_Number'; -- 1
+    V_NO EstateAgent.agentID%TYPE:='&Agent_Number'; -- 1, 
+    V_COMPANY Company.companyID%TYPE:='&Company_Number'; -- 1
     V_NAME EstateAgent.agentName%TYPE;
     V_RENTABLE INTEGER;
-    V_FORRENT ForRent.propertyID%TYPE:='&Rentable_Property'; -- 1
+    V_FORRENT ForRent.propertyID%TYPE:='&Rentable_Property'; -- 1, 5
     V_PRICE forrent.monthlyrent%TYPE;
     V_BUYER Buyer.buyerID%TYPE:='&Buyer_ID'; -- 1
     V_SELLER Seller.sellerID%TYPE:='&Seller_ID'; -- 5
@@ -15,8 +16,8 @@ BEGIN
     
     IF (V_RENTABLE > 0) THEN
         DBMS_OUTPUT.PUT_LINE('Updating...');
-        INSERT INTO RentTransaction (rentTransID, propertyID, agentID, buyerID, sellerID, price)
-            VALUES (V_TID, V_FORRENT, V_NO, V_BUYER, V_SELLER, V_PRICE);
+        INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price)
+            VALUES (V_TID, V_COMPANY, V_FORRENT, V_NO, V_BUYER, V_SELLER, V_PRICE);
         DELETE FROM ForRent WHERE ForRent.propertyID = V_FORRENT;
         DBMS_OUTPUT.PUT_LINE('Transaction successfully completed');
         COMMIT;
