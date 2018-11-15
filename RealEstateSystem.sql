@@ -122,6 +122,8 @@ CREATE TABLE RentTransaction (
 );
 
 INSERT INTO Company VALUES(1, 'E-State Properties');
+INSERT INTO Company VALUES(2, 'Hello bichael');
+
 
 INSERT INTO Seller (sellerID, sellerName, sellerPhoneNum, sellerEmail)
     VALUES(1, 'Bob Walsh', '123400121', 'bwalsh@seller.ie');
@@ -237,4 +239,21 @@ INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID,
 INSERT INTO BuyTransaction (buyTransID, companyID, agentID, propertyID, buyerID, sellerID, price)
     VALUES(3, 1, 7, 13, 5, 10, 85000);
     
+GRANT SELECT ON Company TO MLENGHEL;
+REVOKE SELECT ON Company FROM MLENGHEL;
+GRANT
+    SELECT,
+    INSERT,
+    UPDATE,
+    DELETE
+ON
+    SCHEMA.dt2283group_h
+TO
+    MLENGHEL,
+    PKUBILIUS;
 COMMIT;
+
+
+INSERT INTO Company VALUES (4, 'UwU');
+
+SELECT * FROM MLENGHEL.Company;

@@ -22,10 +22,10 @@ MINUS
 SELECT agentID, agentName, agentPhoneNum FROM EstateAgent
 JOIN Buyer USING (agentID);
 
--- Difference, select properties which are NOT put up for rent
-SELECT propertyID, address numBedrooms FROM Property
-WHERE propertyID NOT IN
-    (SELECT propertyID FROM ForRent);
+-- Difference to select all agents that have not rented out a property.
+SELECT agentID, agentName, agentPhoneNum FROM EstateAgent
+WHERE agentID NOT IN 
+    (SELECT agentID FROM RentTransaction);
 
 -- Inner Join, this shows the buyers and who is estate agent consulting them
 SELECT buyerName, agentName FROM Buyer
