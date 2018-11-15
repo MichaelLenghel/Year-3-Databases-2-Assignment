@@ -15,8 +15,8 @@ BEGIN
     
     IF (V_RENTABLE > 0) THEN
         DBMS_OUTPUT.PUT_LINE('Updating...');
-        INSERT INTO RentTransaction (rentTransID, companyID, propertyID, agentID, buyerID, sellerID, price)
-            VALUES (V_TID, 1, V_FORRENT, V_NO, V_BUYER, V_SELLER, V_PRICE);
+        INSERT INTO RentTransaction (rentTransID, propertyID, agentID, buyerID, sellerID, price)
+            VALUES (V_TID, V_FORRENT, V_NO, V_BUYER, V_SELLER, V_PRICE);
         DELETE FROM ForRent WHERE ForRent.propertyID = V_FORRENT;
         DBMS_OUTPUT.PUT_LINE('Transaction successfully completed');
         COMMIT;
